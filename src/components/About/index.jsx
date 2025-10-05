@@ -7,7 +7,7 @@ const About = () => {
       <div style={styles.container}>
         <h2 style={styles.sectionTitle}>About</h2>
         <div style={styles.aboutGrid}>
-          <div style={styles.aboutImage}>Profile Photo</div>
+          <div style={styles.aboutImage} />
           <div style={styles.aboutContent}>
             <h3 style={styles.aboutSubtitle}>
               Fullstack MERN Developer & Web Application Developer

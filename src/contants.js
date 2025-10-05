@@ -76,6 +76,7 @@ export const navbar = [
   { text: "About", icon: "👤", id: "about" },
   { text: "Resume", icon: "📄", id: "resume" },
   { text: "Portfolio", icon: "💼", id: "portfolio" },
+  { text: "Education", icon: "💼", id: "education" },
   { text: "Services", icon: "🔧", id: "services" },
   { text: "Contact", icon: "✉️", id: "contact" },
 ];

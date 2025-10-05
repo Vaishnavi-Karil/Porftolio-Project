@@ -9,6 +9,7 @@ import About from "./components/About";
 import Hero from "./components/Hero";
 import { styles } from "./styles";
 import { navbar, portfolioItems, services, skills, stats } from "./contants";
+import Education from "./components/Education";
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -155,12 +156,14 @@ function App() {
         <Skills skills={skills} />
         {/* Resume Section */}
         <Resume />
+
         {/* Portfolio Section */}
         <Portfolio
           portfolioFilter={portfolioFilter}
           filteredPortfolio={filteredPortfolio}
           setPortfolioFilter={setPortfolioFilter}
         />
+        <Education />
         {/* Services Section */}
         <Services services={services} />
         {/* Contact Section */}
@@ -183,3 +186,17 @@ function App() {
   );
 }
 export default App;
+
+// import React from "react";
+// import { manageImages } from "./manageImages";
+// const App = () => {
+//   const { src: heroImg } = manageImages.heroImage;
+//   return (
+//     <div>
+//       <h1>App</h1>
+//       <img src={heroImg} alt="" />
+//     </div>
+//   );
+// };
+
+// export default App;

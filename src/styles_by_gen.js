@@ -11,15 +11,17 @@ export const styles = {
     minHeight: "100vh",
   },
   sidebar: {
-    position: "fixed", // make it always stay visible
+    position: "fixed",
     left: 0,
     top: 0,
     bottom: 0,
-    width: "280px", // sidebar width
-    background: "rgb(30, 30, 46)",
-    borderRight: "1px solid rgb(42, 42, 62)",
+    width: "280px",
+    background: "#1e1e2e",
+    borderRight: "1px solid #2a2a3e",
     overflowY: "auto",
     zIndex: 1000,
+    transform: "translateX(-100%)",
+    transition: "transform 0.3s ease",
   },
   sidebarOpen: {
     transform: "translateX(0)",
@@ -97,32 +99,19 @@ export const styles = {
     cursor: "pointer",
   },
   mainContent: {
-    // marginLeft: 0,
-    // minHeight: "100vh",
-    marginLeft: "280px", // leave space for sidebar
+    marginLeft: 0,
     minHeight: "100vh",
-    position: "relative",
   },
   heroSection: {
-    // minHeight: "100vh",
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // background:
-    //   "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(135deg, #1a1f2e 0%, #040b14 100%)",
-    // background: `url(${heroImg}) no-repeat center center`,
-    // textAlign: "center",
-    // padding: "20px",
-    // backgroundSize: "cover",
-
     minHeight: "100vh",
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-start", // left align
-    background:
-      "url('/src/assets/img/hero-img-1.jpg') center center / cover no-repeat",
-    textAlign: "left", // text ko left align kare
-    paddingLeft: "0 50px",
+    justifyContent: "center",
+    // background:
+    //   "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(135deg, #1a1f2e 0%, #040b14 100%)",
+    background: `url(${heroImg}) no-repeat center center`,
+    textAlign: "center",
+    padding: "20px",
   },
   heroTitle: {
     fontSize: "48px",
@@ -139,7 +128,6 @@ export const styles = {
   },
   section: {
     padding: "80px 20px",
-    // background: "rgb(13 21 37)",
   },
   lightBg: {
     background: "#0d1525",
@@ -163,13 +151,12 @@ export const styles = {
   },
   aboutImage: {
     aspectRatio: "1",
-    background: "url('/src/assets/img/vaishnavi-gemini-pic.png')",
+    background: "linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)",
     borderRadius: "10px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontWeight: 600,
-    backgroundSize: "cover",
   },
   aboutContent: {},
   aboutSubtitle: {
@@ -246,32 +233,13 @@ export const styles = {
   },
   resumeGrid: {
     display: "grid",
-    // gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-    gridTemplateRows: "repeat(auto-fit, minmax(400px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
     gap: "40px",
   },
   resumeSubtitle: {
     fontSize: "26px",
     marginBottom: "20px",
   },
-  // start change
-  summaryContainer: {
-    // background: "rgb(26, 31, 46)",
-    // padding: "25px",
-    borderRadius: "10px",
-    marginBottom: "40px",
-    // borderLeft: "3px solid rgb(20, 157, 221)",
-  },
-  heading: {
-    fontSize: "26px",
-    marginBottom: "15px",
-    color: "#fff",
-  },
-  paragraph: {
-    color: "rgb(168, 169, 180)",
-    lineHeight: "1.6",
-  },
-  // end
   resumeItem: {
     background: "#1a1f2e",
     padding: "25px",
