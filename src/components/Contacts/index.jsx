@@ -1,25 +1,49 @@
 import React from "react";
+import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import { styles } from "../../styles";
 
 const Contact = ({ formData, handleInputChange, handleSubmit }) => {
+  const infoItems = [
+    {
+      icon: FiMapPin,
+      title: "Address",
+      text: "Dubai Silicon Oasis, Dubai, United Arab Emirates",
+    },
+    {
+      icon: FiPhone,
+      title: "Call Us",
+      text: "+971 528008661",
+    },
+    {
+      icon: FiMail,
+      title: "Email Us",
+      text: "vaishnavigkariluae@gmail.com",
+    },
+  ];
+
   return (
     <section id="contact" style={{ ...styles.section, ...styles.lightBg }}>
       <div style={styles.container}>
         <h2 style={styles.sectionTitle}>Contact</h2>
         <div style={styles.contactGrid}>
           <div>
-            <div style={styles.infoCard}>
-              <h4>📍 Address</h4>
-              <p>Dubai Silicon Oasis, Dubai, United Arab Emirates</p>
-            </div>
-            <div style={styles.infoCard}>
-              <h4>📞 Call Us</h4>
-              <p>+971 528008661</p>
-            </div>
-            <div style={styles.infoCard}>
-              <h4>✉️ Email Us</h4>
-              <p>vaishnavigkariluae@gmail.com</p>
-            </div>
+            {infoItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div key={index} style={styles.infoCard}>
+                  <h4
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <Icon /> {item.title}
+                  </h4>
+                  <p>{item.text}</p>
+                </div>
+              );
+            })}
           </div>
           <div style={styles.contactForm}>
             <input

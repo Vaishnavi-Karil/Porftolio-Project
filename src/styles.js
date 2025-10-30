@@ -1,6 +1,8 @@
 import { manageImages } from "./manageImages";
 
 const { src: heroImg } = manageImages.heroImage;
+// const images = require("../public/assets/img/hero-img-1.jpg");
+// public\assets\img\hero-img-1.jpg
 
 export const styles = {
   app: {
@@ -35,13 +37,15 @@ export const styles = {
     width: "120px",
     height: "120px",
     margin: "0 auto 20px",
-    background: "linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)",
+    // background: "linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)",
+    background: "url('/assets/img/vaishnavi-profile-img.png')",
     borderRadius: "50%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "48px",
     fontWeight: "bold",
+    backgroundSize: "cover",
   },
   profileName: {
     fontSize: "24px",
@@ -53,6 +57,15 @@ export const styles = {
     justifyContent: "center",
     gap: "10px",
     marginBottom: "30px",
+  },
+  achortag: {
+    textDecoration: "none",
+    color: "white",
+    display: "flex",
+
+    flexDirection: "row",
+    /* justify-content: center; */
+    alignItems: "center",
   },
   socialIcon: {
     width: "36px",
@@ -104,25 +117,17 @@ export const styles = {
     position: "relative",
   },
   heroSection: {
-    // minHeight: "100vh",
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // background:
-    //   "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(135deg, #1a1f2e 0%, #040b14 100%)",
-    // background: `url(${heroImg}) no-repeat center center`,
-    // textAlign: "center",
-    // padding: "20px",
-    // backgroundSize: "cover",
-
     minHeight: "100vh",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start", // left align
     background:
-      "url('/src/assets/img/hero-img-1.jpg') center center / cover no-repeat",
+      "url('/assets/img/hero-img-1.jpg') center center / cover no-repeat",
     textAlign: "left", // text ko left align kare
     paddingLeft: "0 50px",
+  },
+  heroContent: {
+    marginLeft: "3rem",
   },
   heroTitle: {
     fontSize: "48px",
@@ -163,7 +168,9 @@ export const styles = {
   },
   aboutImage: {
     aspectRatio: "1",
-    background: "url('/src/assets/img/vaishnavi-gemini-pic.png')",
+    background: "url('/assets/img/vaishnavi-profile-img.png')",
+    // "url('/assets/img/vaishnavi-profile-img.png')"
+
     borderRadius: "10px",
     display: "flex",
     alignItems: "center",
@@ -437,5 +444,37 @@ export const styles = {
     fontSize: "24px",
     cursor: "pointer",
     zIndex: 999,
+  },
+  //dialog css
+  paper: {
+    borderRadius: "12px",
+    padding: "20px",
+    backgroundColor: "#1e1e2f",
+    color: "#fff",
+  },
+  title: {
+    fontSize: "1.8rem",
+    fontWeight: 600,
+    marginBottom: "1rem",
+  },
+  video: {
+    width: "100%",
+    borderRadius: "8px",
+    marginBottom: "1rem",
+  },
+  text: {
+    marginBottom: "0.75rem",
+    lineHeight: 1.5,
+  },
+  link: {
+    color: "#4fc3f7",
+    textDecoration: "underline",
+  },
+  closeButton: {
+    position: "absolute",
+    top: "8px",
+    right: "8px",
+    color: "#fff",
+    background: "rgba(0,0,0,0.3)",
   },
 };

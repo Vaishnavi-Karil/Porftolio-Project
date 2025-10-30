@@ -373,19 +373,21 @@ function App() {
           <div style={styles.container}>
             <h2 style={styles.sectionTitle}>Portfolio</h2>
             <div style={styles.portfolioFilters}>
-              {["all", "app", "product", "branding", "books"].map((filter) => (
-                <button
-                  key={filter}
-                  style={
-                    portfolioFilter === filter
-                      ? styles.filterBtnActive
-                      : styles.filterBtn
-                  }
-                  onClick={() => setPortfolioFilter(filter)}
-                >
-                  {filter.charAt(0).toUpperCase() + filter.slice(1)}
-                </button>
-              ))}
+              {["all", "web", "fullstack", "mobile", "backend"].map(
+                (filter) => (
+                  <button
+                    key={filter}
+                    style={
+                      portfolioFilter === filter
+                        ? styles.filterBtnActive
+                        : styles.filterBtn
+                    }
+                    onClick={() => setPortfolioFilter(filter)}
+                  >
+                    {filter.charAt(0).toUpperCase() + filter.slice(1)}
+                  </button>
+                )
+              )}
             </div>
             <div style={styles.portfolioGrid}>
               {filteredPortfolio.map((item) => (

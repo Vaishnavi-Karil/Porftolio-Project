@@ -10,6 +10,8 @@ import Hero from "./components/Hero";
 import { styles } from "./styles";
 import { navbar, portfolioItems, services, skills, stats } from "./contants";
 import Education from "./components/Education";
+import Certification from "./components/Certification";
+import { FiGithub, FiLinkedin, FiPhone } from "react-icons/fi";
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -90,22 +92,37 @@ function App() {
       >
         <div style={styles.sidebarContent}>
           <div style={styles.profileSection}>
-            <div style={styles.avatar}>VK</div>
+            <div style={styles.avatar}></div>
             <h1 style={styles.profileName}>Vaishnavi Karil</h1>
           </div>
 
           <div style={styles.socialLinks}>
-            <a href="#" style={styles.socialIcon}>
-              X
+            <a
+              href="tel:+971 528008661"
+              target="_blank"
+              title="Call"
+              style={styles.socialIcon}
+            >
+              <FiPhone />
             </a>
-            <a href="#" style={styles.socialIcon}>
-              f
+
+            <a
+              href="https://www.linkedin.com/in/vaishnavi-karil/"
+              target="_blank"
+              // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
+
+              style={styles.socialIcon}
+            >
+              <FiLinkedin />
             </a>
-            <a href="#" style={styles.socialIcon}>
-              in
-            </a>
-            <a href="#" style={styles.socialIcon}>
-              ig
+
+            <a
+              href="https://github.com/Vaishnavi-Karil"
+              target="_blank"
+              // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
+              style={styles.socialIcon}
+            >
+              <FiGithub />
             </a>
           </div>
 
@@ -116,7 +133,7 @@ function App() {
                 style={styles.navButton}
                 onClick={() => scrollToSection(item.id)}
               >
-                {item.icon} {item.text}
+                {item.icon()} {item.text}
               </button>
             ))}
           </nav>
@@ -141,13 +158,19 @@ function App() {
         <section style={styles.statsSection}>
           <div style={styles.container}>
             <div style={styles.statsGrid}>
-              {stats.map((stat, index) => (
-                <div key={index} style={styles.statCard}>
-                  <div style={styles.statIcon}>{stat.icon}</div>
-                  <div style={styles.statValue}>{stat.value}</div>
-                  <div style={styles.statLabel}>{stat.label}</div>
-                </div>
-              ))}
+              {/* const Icon = service.icon; */}
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={index} style={styles.statCard}>
+                    <div style={styles.statIcon}>
+                      <Icon />
+                    </div>
+                    <div style={styles.statValue}>{stat.value}</div>
+                    <div style={styles.statLabel}>{stat.label}</div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -163,6 +186,7 @@ function App() {
           filteredPortfolio={filteredPortfolio}
           setPortfolioFilter={setPortfolioFilter}
         />
+        <Certification />
         <Education />
         {/* Services Section */}
         <Services services={services} />

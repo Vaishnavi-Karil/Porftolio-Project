@@ -1,5 +1,6 @@
 // src/data/images.js
-import heroImage from "./assets/img/hero-img-1.jpg";
+// import heroImage from "./assets/img/hero-img-1.jpg";
+import heroImage from "../public/assets/img/hero-img-1.jpg";
 export const manageImages = {
   heroImage: {
     src: heroImage,
