@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Footer from "./components/Footer";
-import Contact from "./components/Contacts";
-import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
-import Resume from "./components/Resume";
-import Skills from "./components/Skills";
-import About from "./components/About";
-import Hero from "./components/Hero";
+import Footer from "./pages/Footer";
+import Contact from "./pages/Contacts";
+import Services from "./pages/Services";
+import Portfolio from "./pages/Portfolio";
+import Resume from "./pages/Resume";
+import Skills from "./pages/Skills";
+import About from "./pages/About";
+import Hero from "./pages/Hero";
 import { styles } from "./styles";
 import { navbar, portfolioItems, services, skills, stats } from "./contants";
-import Education from "./components/Education";
-import Certification from "./components/Certification";
+import Education from "./pages/Education";
+import Certification from "./pages/Certification";
 import { FiGithub, FiLinkedin, FiPhone } from "react-icons/fi";
 
 function App() {
