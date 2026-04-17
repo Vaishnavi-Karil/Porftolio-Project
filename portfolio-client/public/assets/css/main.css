@@ -208,10 +208,56 @@ h6 {
   background: var(--accent-color);
 }
 
+/* Sidebar Social Icons - Enhanced */
+.sidebar-social-icon {
+  transition: all 0.3s ease;
+}
+
+.sidebar-social-icon:hover {
+  transform: scale(1.15);
+  background: var(--accent-color) !important;
+  box-shadow: 0 0 12px rgba(20, 157, 221, 0.5);
+  color: #fff !important;
+}
+
+/* Social Icon Component Styles */
+.social-icon-wrapper {
+  transition: all 0.3s ease;
+}
+
+.social-icon-wrapper:hover {
+  transform: scale(1.15);
+  background: var(--accent-color) !important;
+  box-shadow: 0 0 12px rgba(20, 157, 221, 0.5);
+  color: #fff !important;
+}
+
+.social-icon-wrapper.active {
+  background: rgb(20, 157, 221) !important;
+  color: #fff !important;
+  transform: scale(1.1) !important;
+}
+
+/* Ensure portfolio social icons have proper cursor */
+.portfolio-social-icon {
+  cursor: pointer;
+}
+
+/* Sidebar Navigation Buttons - Enhanced */
+.sidebar-nav-button {
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav-button:hover {
+  background: rgba(20, 157, 221, 0.1);
+  color: rgb(20, 157, 221);
+}
+
 @media (min-width: 1200px) {
   .header ~ main,
   .header ~ #footer {
-    margin-left: 300px;
+    margin-left: 21%;
+    width: 79%;
   }
 }
 
@@ -246,6 +292,53 @@ h6 {
 .header .header-toggle:hover {
   color: var(--contrast-color);
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*--------------------------------------------------------------
+# Global Responsive Layout
+--------------------------------------------------------------*/
+/* Override main content width for responsive behavior */
+@media (max-width: 1200px) {
+  main[id="main"] {
+    margin-left: 21%;
+    width: 79%;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    left: -100%;
+  }
+
+  .header.header-show {
+    left: 0;
+  }
+
+  main[id="main"],
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  main[id="main"],
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 576px) {
+  main[id="main"],
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -545,6 +638,21 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+section#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+section#hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+section#hero .hero-image-container {
+  position: relative;
+  z-index: 2;
+}
+
 .hero {
   width: 100%;
   min-height: 100vh;
@@ -618,6 +726,39 @@ section,
 
   .hero p {
     font-size: 20px;
+  }
+}
+
+/* Hero Section Responsive Styles */
+@media (max-width: 992px) {
+  section#hero {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 80px 20px !important;
+    gap: 30px !important;
+  }
+
+  section#hero .hero-content {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  section#hero .hero-image-container {
+    margin-left: 0 !important;
+    margin-top: 20px;
+  }
+
+  section#hero .hero-image-container img {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  section#hero .hero-image-container img {
+    width: 200px !important;
+    height: 200px !important;
   }
 }
 
@@ -1286,4 +1427,199 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# About Section - Profile Image Enhancements
+--------------------------------------------------------------*/
+.about-image-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(20, 157, 221, 0.4);
+  border-color: rgba(20, 157, 221, 0.6);
+}
+
+.about-image-container:hover .about-profile-img {
+  transform: scale(1.03);
+}
+}
+
+/*--------------------------------------------------------------
+# Skills Section - Modern Glassmorphic Design
+--------------------------------------------------------------*/
+.skills-section {
+  position: relative;
+}
+
+/* Circular progress animations */
+@keyframes progressAnimation {
+  from {
+    stroke-dashoffset: 283;
+  }
+}
+
+.circular-progress {
+  animation: progressAnimation 1.5s ease-out forwards;
+}
+
+/* Skill card hover animations */
+.skill-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Shine effect animation */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skill-card::before {
+  animation: shine 0.6s ease-in-out;
+}
+
+/* Category section fade in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-section {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #skills {
+    padding: 60px 20px !important;
+  }
+
+  #skills .section-title {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #skills {
+    padding: 40px 16px !important;
+  }
+
+  #skills h2 {
+    font-size: 24px !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Project Cards - Modern Glassmorphic Design
+--------------------------------------------------------------*/
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(20, 157, 221, 0.5);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(20, 157, 221, 0.15),
+    inset 0 0 20px rgba(20, 157, 221, 0.05);
+}
+
+.project-card:hover .project-title {
+  color: #149ddd;
+}
+
+.project-card:hover .project-link {
+  color: #fff;
+  background: #149ddd;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.project-link:hover {
+  color: #fff !important;
+  background: #0c7ab5 !important;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Section - Responsive Grid
+--------------------------------------------------------------*/
+@media (max-width: 992px) {
+  #portfolio .project-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #portfolio .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #portfolio {
+    padding: 60px 20px !important;
+  }
+
+  #portfolio .section-title h2 {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #portfolio {
+    padding: 40px 16px !important;
+  }
+
+  #portfolio h2 {
+    font-size: 24px !important;
+  }
+
+  #portfolio .project-card-content {
+    padding: 20px !important;
+  }
 }

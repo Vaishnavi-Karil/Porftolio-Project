@@ -1,17 +1,19 @@
-import React from "react";
-import { styles } from "../../styles";
+import React from 'react';
+// import { skills } from '../../contants';
+import { styles } from '../../styles';
+import { skills } from '../../contants';
 
-const Skills = ({ skills }) => {
+const Skills = () => {
   return (
-    <section style={{ ...styles.section, ...styles.lightBg }}>
+    <section id='skills' style={{ ...styles.section, ...styles.lightBg }}>
       <div style={styles.container}>
         <h2 style={styles.sectionTitle}>Skills</h2>
         <div style={styles.skillsGrid}>
-          {skills.map((skill) => (
-            <div key={skill.name} style={styles.skillItem}>
+          {skills.map((skill, index) => (
+            <div key={index} style={styles.skillItem}>
               <div style={styles.skillHeader}>
-                <span>{skill.name}</span>
-                <span>{skill.value}%</span>
+                <span style={{ fontWeight: 600 }}>{skill.name}</span>
+                <span style={{ color: '#149ddd' }}>{skill.value}%</span>
               </div>
               <div style={styles.progressBar}>
                 <div
@@ -19,7 +21,7 @@ const Skills = ({ skills }) => {
                     ...styles.progressFill,
                     width: `${skill.value}%`,
                   }}
-                ></div>
+                />
               </div>
             </div>
           ))}

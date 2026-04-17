@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [portfolioFilter, setPortfolioFilter] = useState("all");
+  const [portfolioFilter, setPortfolioFilter] = useState('all');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
       setMobileOpen(false);
     }
   };
@@ -40,107 +40,107 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         alert(
-          "Message sent successfully! Vaishnavi will get back to you soon."
+          'Message sent successfully! Vaishnavi will get back to you soon.',
         );
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         alert(
-          "Failed to send message. Please try again or email directly at vaishnavigkariluae@gmail.com"
+          'Failed to send message. Please try again or email directly at vaishnavigkaril@gmail.com',
         );
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
       alert(
-        "Failed to send message. Please email directly at vaishnavigkariluae@gmail.com"
+        'Failed to send message. Please email directly at vaishnavigkaril@gmail.com',
       );
     }
   };
 
   const skills = [
-    { name: "React.js & Next.js", value: 90 },
-    { name: "Node.js & Express", value: 85 },
-    { name: "MongoDB & Mongoose", value: 80 },
-    { name: "Redux Toolkit", value: 85 },
-    { name: "PostgreSQL & MySQL", value: 80 },
-    { name: "AWS (Amplify, S3, RDS)", value: 70 },
+    { name: 'React.js & Next.js', value: 90 },
+    { name: 'Node.js & Express', value: 85 },
+    { name: 'MongoDB & Mongoose', value: 80 },
+    { name: 'Redux Toolkit', value: 85 },
+    { name: 'PostgreSQL & MySQL', value: 80 },
+    { name: 'AWS (Amplify, S3, RDS)', value: 70 },
   ];
 
   const portfolioItems = [
     {
       id: 1,
-      title: "App 1",
-      category: "app",
-      description: "Mobile application design",
+      title: 'App 1',
+      category: 'app',
+      description: 'Mobile application design',
     },
     {
       id: 2,
-      title: "Product 1",
-      category: "product",
-      description: "Product photography",
+      title: 'Product 1',
+      category: 'product',
+      description: 'Product photography',
     },
     {
       id: 3,
-      title: "Branding 1",
-      category: "branding",
-      description: "Brand identity design",
+      title: 'Branding 1',
+      category: 'branding',
+      description: 'Brand identity design',
     },
     {
       id: 4,
-      title: "Books 1",
-      category: "books",
-      description: "Book cover design",
+      title: 'Books 1',
+      category: 'books',
+      description: 'Book cover design',
     },
     {
       id: 5,
-      title: "App 2",
-      category: "app",
-      description: "Web application UI",
+      title: 'App 2',
+      category: 'app',
+      description: 'Web application UI',
     },
     {
       id: 6,
-      title: "Product 2",
-      category: "product",
-      description: "E-commerce product",
+      title: 'Product 2',
+      category: 'product',
+      description: 'E-commerce product',
     },
   ];
 
   const services = [
     {
-      title: "Web Design",
-      description: "Creating beautiful and functional websites",
+      title: 'Web Design',
+      description: 'Creating beautiful and functional websites',
     },
     {
-      title: "Development",
-      description: "Full-stack MERN development services",
+      title: 'Development',
+      description: 'Full-stack MERN development services',
     },
-    { title: "UI/UX Design", description: "User-centered design approaches" },
+    { title: 'UI/UX Design', description: 'User-centered design approaches' },
     {
-      title: "Consulting",
-      description: "Technical consulting and architecture",
+      title: 'Consulting',
+      description: 'Technical consulting and architecture',
     },
-    { title: "Branding", description: "Complete brand identity solutions" },
-    { title: "SEO", description: "Search engine optimization services" },
+    { title: 'Branding', description: 'Complete brand identity solutions' },
+    { title: 'SEO', description: 'Search engine optimization services' },
   ];
 
   const stats = [
-    { value: 3, label: "Years of Experience", icon: "💼" },
-    { value: 15, label: "Completed Projects", icon: "📊" },
-    { value: 12, label: "Technologies Mastered", icon: "🎧" },
-    { value: 5, label: "Certifications", icon: "👥" },
+    { value: 3, label: 'Years of Experience', icon: '💼' },
+    { value: 15, label: 'Completed Projects', icon: '📊' },
+    { value: 12, label: 'Technologies Mastered', icon: '🎧' },
+    { value: 5, label: 'Certifications', icon: '👥' },
   ];
 
   const filteredPortfolio =
-    portfolioFilter === "all"
+    portfolioFilter === 'all'
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === portfolioFilter);
 
@@ -157,28 +157,28 @@ function App() {
           </div>
 
           <div style={styles.socialLinks}>
-            <a href="#" style={styles.socialIcon}>
+            <a href='#' style={styles.socialIcon}>
               X
             </a>
-            <a href="#" style={styles.socialIcon}>
+            <a href='#' style={styles.socialIcon}>
               f
             </a>
-            <a href="#" style={styles.socialIcon}>
+            <a href='#' style={styles.socialIcon}>
               in
             </a>
-            <a href="#" style={styles.socialIcon}>
+            <a href='#' style={styles.socialIcon}>
               ig
             </a>
           </div>
 
           <nav style={styles.navMenu}>
             {[
-              { text: "Home", icon: "🏠", id: "hero" },
-              { text: "About", icon: "👤", id: "about" },
-              { text: "Resume", icon: "📄", id: "resume" },
-              { text: "Portfolio", icon: "💼", id: "portfolio" },
-              { text: "Services", icon: "🔧", id: "services" },
-              { text: "Contact", icon: "✉️", id: "contact" },
+              { text: 'Home', icon: '🏠', id: 'hero' },
+              { text: 'About', icon: '👤', id: 'about' },
+              { text: 'Resume', icon: '📄', id: 'resume' },
+              { text: 'Portfolio', icon: '💼', id: 'portfolio' },
+              { text: 'Services', icon: '🔧', id: 'services' },
+              { text: 'Contact', icon: '✉️', id: 'contact' },
             ].map((item) => (
               <button
                 key={item.id}
@@ -197,24 +197,24 @@ function App() {
         style={styles.mobileMenuBtn}
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-        {mobileOpen ? "✕" : "☰"}
+        {mobileOpen ? '✕' : '☰'}
       </button>
 
       {/* Main Content */}
       <main style={styles.mainContent}>
         {/* Hero Section */}
-        <section id="hero" style={styles.heroSection}>
+        <section id='hero' style={styles.heroSection}>
           <div style={styles.heroContent}>
             <h1 style={styles.heroTitle}>Vaishnavi Karil</h1>
             <p style={styles.heroSubtitle}>
-              I'm a{" "}
+              I'm a{' '}
               <span style={styles.highlight}>Frontend React JS Developer</span>
             </p>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" style={styles.section}>
+        <section id='about' style={styles.section}>
           <div style={styles.container}>
             <h2 style={styles.sectionTitle}>About</h2>
             <div style={styles.aboutGrid}>
@@ -246,7 +246,7 @@ function App() {
                       <strong>Degree:</strong> M.Sc IT
                     </p>
                     <p style={styles.infoText}>
-                      <strong>Email:</strong> vaishnavigkariluae@gmail.com
+                      <strong>Email:</strong> vaishnavigkaril@gmail.com
                     </p>
                     <p style={styles.infoText}>
                       <strong>Status:</strong> Immediate Joiner
@@ -299,7 +299,7 @@ function App() {
         </section>
 
         {/* Resume Section */}
-        <section id="resume" style={styles.section}>
+        <section id='resume' style={styles.section}>
           <div style={styles.container}>
             <h2 style={styles.sectionTitle}>Resume</h2>
             <div style={styles.resumeGrid}>
@@ -367,13 +367,13 @@ function App() {
 
         {/* Portfolio Section */}
         <section
-          id="portfolio"
+          id='portfolio'
           style={{ ...styles.section, ...styles.lightBg }}
         >
           <div style={styles.container}>
             <h2 style={styles.sectionTitle}>Portfolio</h2>
             <div style={styles.portfolioFilters}>
-              {["all", "web", "fullstack", "mobile", "backend"].map(
+              {['all', 'web', 'fullstack', 'mobile', 'backend'].map(
                 (filter) => (
                   <button
                     key={filter}
@@ -386,7 +386,7 @@ function App() {
                   >
                     {filter.charAt(0).toUpperCase() + filter.slice(1)}
                   </button>
-                )
+                ),
               )}
             </div>
             <div style={styles.portfolioGrid}>
@@ -404,7 +404,7 @@ function App() {
         </section>
 
         {/* Services Section */}
-        <section id="services" style={styles.section}>
+        <section id='services' style={styles.section}>
           <div style={styles.container}>
             <h2 style={styles.sectionTitle}>Services</h2>
             <div style={styles.servicesGrid}>
@@ -420,7 +420,7 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" style={{ ...styles.section, ...styles.lightBg }}>
+        <section id='contact' style={{ ...styles.section, ...styles.lightBg }}>
           <div style={styles.container}>
             <h2 style={styles.sectionTitle}>Contact</h2>
             <div style={styles.contactGrid}>
@@ -435,39 +435,39 @@ function App() {
                 </div>
                 <div style={styles.infoCard}>
                   <h4>✉️ Email Us</h4>
-                  <p>vaishnavigkariluae@gmail.com</p>
+                  <p>vaishnavigkaril@gmail.com</p>
                 </div>
               </div>
               <div style={styles.contactForm}>
                 <input
                   style={styles.input}
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
+                  type='text'
+                  name='name'
+                  placeholder='Your Name'
                   value={formData.name}
                   onChange={handleInputChange}
                 />
                 <input
                   style={styles.input}
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
+                  type='email'
+                  name='email'
+                  placeholder='Your Email'
                   value={formData.email}
                   onChange={handleInputChange}
                 />
                 <input
                   style={styles.input}
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
+                  type='text'
+                  name='subject'
+                  placeholder='Subject'
                   value={formData.subject}
                   onChange={handleInputChange}
                 />
                 <textarea
                   style={{ ...styles.input, ...styles.textarea }}
-                  name="message"
-                  placeholder="Message"
-                  rows="6"
+                  name='message'
+                  placeholder='Message'
+                  rows='6'
                   value={formData.message}
                   onChange={handleInputChange}
                 />
@@ -505,403 +505,403 @@ const styles = {
   app: {
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    color: "#fff",
-    background: "#040b14",
-    minHeight: "100vh",
+    color: '#fff',
+    background: '#040b14',
+    minHeight: '100vh',
   },
   sidebar: {
-    position: "fixed",
+    position: 'fixed',
     left: 0,
     top: 0,
     bottom: 0,
-    width: "280px",
-    background: "#1e1e2e",
-    borderRight: "1px solid #2a2a3e",
-    overflowY: "auto",
+    width: '280px',
+    background: '#1e1e2e',
+    borderRight: '1px solid #2a2a3e',
+    overflowY: 'auto',
     zIndex: 1000,
-    transform: "translateX(-100%)",
-    transition: "transform 0.3s ease",
+    transform: 'translateX(-100%)',
+    transition: 'transform 0.3s ease',
   },
   sidebarOpen: {
-    transform: "translateX(0)",
+    transform: 'translateX(0)',
   },
   sidebarContent: {
-    padding: "30px",
+    padding: '30px',
   },
   profileSection: {
-    textAlign: "center",
-    marginBottom: "30px",
+    textAlign: 'center',
+    marginBottom: '30px',
   },
   avatar: {
-    width: "120px",
-    height: "120px",
-    margin: "0 auto 20px",
-    background: "linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)",
-    borderRadius: "50%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "48px",
-    fontWeight: "bold",
+    width: '120px',
+    height: '120px',
+    margin: '0 auto 20px',
+    background: 'linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '48px',
+    fontWeight: 'bold',
   },
   profileName: {
-    fontSize: "24px",
+    fontSize: '24px',
     fontWeight: 600,
     margin: 0,
   },
   socialLinks: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "10px",
-    marginBottom: "30px",
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '10px',
+    marginBottom: '30px',
   },
   socialIcon: {
-    width: "36px",
-    height: "36px",
-    background: "#2a2a3e",
-    borderRadius: "50%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#149ddd",
-    textDecoration: "none",
-    fontSize: "14px",
+    width: '36px',
+    height: '36px',
+    background: '#2a2a3e',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#149ddd',
+    textDecoration: 'none',
+    fontSize: '14px',
   },
   navMenu: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "5px",
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '5px',
   },
   navButton: {
-    background: "transparent",
-    border: "none",
-    color: "#a8a9b4",
-    padding: "12px 15px",
-    textAlign: "left",
-    fontSize: "15px",
-    cursor: "pointer",
-    borderRadius: "5px",
+    background: 'transparent',
+    border: 'none',
+    color: '#a8a9b4',
+    padding: '12px 15px',
+    textAlign: 'left',
+    fontSize: '15px',
+    cursor: 'pointer',
+    borderRadius: '5px',
   },
   mobileMenuBtn: {
-    display: "block",
-    position: "fixed",
-    top: "20px",
-    left: "20px",
+    display: 'block',
+    position: 'fixed',
+    top: '20px',
+    left: '20px',
     zIndex: 1100,
-    background: "#149ddd",
-    border: "none",
-    color: "#fff",
-    width: "44px",
-    height: "44px",
-    borderRadius: "50%",
-    fontSize: "20px",
-    cursor: "pointer",
+    background: '#149ddd',
+    border: 'none',
+    color: '#fff',
+    width: '44px',
+    height: '44px',
+    borderRadius: '50%',
+    fontSize: '20px',
+    cursor: 'pointer',
   },
   mainContent: {
     marginLeft: 0,
-    minHeight: "100vh",
+    minHeight: '100vh',
   },
   heroSection: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     background:
-      "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(135deg, #1a1f2e 0%, #040b14 100%)",
-    textAlign: "center",
-    padding: "20px",
+      'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(135deg, #1a1f2e 0%, #040b14 100%)',
+    textAlign: 'center',
+    padding: '20px',
   },
   heroTitle: {
-    fontSize: "48px",
+    fontSize: '48px',
     fontWeight: 700,
-    marginBottom: "20px",
+    marginBottom: '20px',
   },
   heroSubtitle: {
-    fontSize: "24px",
-    color: "#a8a9b4",
+    fontSize: '24px',
+    color: '#a8a9b4',
   },
   highlight: {
-    color: "#149ddd",
-    borderBottom: "3px solid #149ddd",
+    color: '#149ddd',
+    borderBottom: '3px solid #149ddd',
   },
   section: {
-    padding: "80px 20px",
+    padding: '80px 20px',
   },
   lightBg: {
-    background: "#0d1525",
+    background: '#0d1525',
   },
   container: {
-    maxWidth: "1140px",
-    margin: "0 auto",
+    maxWidth: '1140px',
+    margin: '0 auto',
   },
   sectionTitle: {
-    fontSize: "36px",
+    fontSize: '36px',
     fontWeight: 700,
-    marginBottom: "40px",
-    paddingBottom: "20px",
-    borderBottom: "2px solid #2a2a3e",
+    marginBottom: '40px',
+    paddingBottom: '20px',
+    borderBottom: '2px solid #2a2a3e',
   },
   aboutGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 2fr",
-    gap: "40px",
-    alignItems: "start",
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr',
+    gap: '40px',
+    alignItems: 'start',
   },
   aboutImage: {
-    aspectRatio: "1",
-    background: "linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)",
-    borderRadius: "10px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    aspectRatio: '1',
+    background: 'linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)',
+    borderRadius: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     fontWeight: 600,
   },
   aboutContent: {},
   aboutSubtitle: {
-    fontSize: "26px",
-    marginBottom: "15px",
+    fontSize: '26px',
+    marginBottom: '15px',
     marginTop: 0,
   },
   italic: {
-    fontStyle: "italic",
-    color: "#a8a9b4",
-    marginBottom: "20px",
+    fontStyle: 'italic',
+    color: '#a8a9b4',
+    marginBottom: '20px',
   },
   infoGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "20px",
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '20px',
   },
   infoText: {
-    color: "#a8a9b4",
-    marginBottom: "10px",
+    color: '#a8a9b4',
+    marginBottom: '10px',
   },
   statsSection: {
-    padding: "60px 20px",
-    background: "#0d1525",
+    padding: '60px 20px',
+    background: '#0d1525',
   },
   statsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: "20px",
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '20px',
   },
   statCard: {
-    background: "#1a1f2e",
-    padding: "30px",
-    borderRadius: "10px",
-    textAlign: "center",
+    background: '#1a1f2e',
+    padding: '30px',
+    borderRadius: '10px',
+    textAlign: 'center',
   },
   statIcon: {
-    fontSize: "36px",
-    marginBottom: "10px",
+    fontSize: '36px',
+    marginBottom: '10px',
   },
   statValue: {
-    fontSize: "48px",
+    fontSize: '48px',
     fontWeight: 700,
-    color: "#149ddd",
-    marginBottom: "10px",
+    color: '#149ddd',
+    marginBottom: '10px',
   },
   statLabel: {
-    color: "#a8a9b4",
-    fontSize: "14px",
+    color: '#a8a9b4',
+    fontSize: '14px',
   },
   skillsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "30px",
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '30px',
   },
   skillItem: {
-    marginBottom: "20px",
+    marginBottom: '20px',
   },
   skillHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    marginBottom: "10px",
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginBottom: '10px',
   },
   progressBar: {
-    height: "10px",
-    background: "#2a2a3e",
-    borderRadius: "5px",
-    overflow: "hidden",
+    height: '10px',
+    background: '#2a2a3e',
+    borderRadius: '5px',
+    overflow: 'hidden',
   },
   progressFill: {
-    height: "100%",
-    background: "linear-gradient(90deg, #149ddd 0%, #0c7ab5 100%)",
-    transition: "width 0.3s ease",
+    height: '100%',
+    background: 'linear-gradient(90deg, #149ddd 0%, #0c7ab5 100%)',
+    transition: 'width 0.3s ease',
   },
   resumeGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-    gap: "40px",
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+    gap: '40px',
   },
   resumeSubtitle: {
-    fontSize: "26px",
-    marginBottom: "20px",
+    fontSize: '26px',
+    marginBottom: '20px',
   },
   resumeItem: {
-    background: "#1a1f2e",
-    padding: "25px",
-    borderRadius: "10px",
-    marginBottom: "20px",
-    borderLeft: "3px solid #149ddd",
+    background: '#1a1f2e',
+    padding: '25px',
+    borderRadius: '10px',
+    marginBottom: '20px',
+    borderLeft: '3px solid #149ddd',
   },
   badge: {
-    display: "inline-block",
-    background: "#149ddd",
-    color: "#fff",
-    padding: "5px 15px",
-    borderRadius: "20px",
-    fontSize: "13px",
-    marginBottom: "10px",
-    marginTop: "5px",
+    display: 'inline-block',
+    background: '#149ddd',
+    color: '#fff',
+    padding: '5px 15px',
+    borderRadius: '20px',
+    fontSize: '13px',
+    marginBottom: '10px',
+    marginTop: '5px',
   },
   descText: {
-    color: "#a8a9b4",
+    color: '#a8a9b4',
   },
   list: {
-    marginTop: "15px",
-    paddingLeft: "20px",
-    color: "#a8a9b4",
+    marginTop: '15px',
+    paddingLeft: '20px',
+    color: '#a8a9b4',
   },
   portfolioFilters: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "10px",
-    marginBottom: "40px",
-    flexWrap: "wrap",
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '10px',
+    marginBottom: '40px',
+    flexWrap: 'wrap',
   },
   filterBtn: {
-    padding: "10px 25px",
-    background: "transparent",
-    border: "2px solid #149ddd",
-    color: "#149ddd",
-    borderRadius: "25px",
-    cursor: "pointer",
-    fontSize: "14px",
+    padding: '10px 25px',
+    background: 'transparent',
+    border: '2px solid #149ddd',
+    color: '#149ddd',
+    borderRadius: '25px',
+    cursor: 'pointer',
+    fontSize: '14px',
     fontWeight: 500,
   },
   filterBtnActive: {
-    padding: "10px 25px",
-    background: "#149ddd",
-    border: "2px solid #149ddd",
-    color: "#fff",
-    borderRadius: "25px",
-    cursor: "pointer",
-    fontSize: "14px",
+    padding: '10px 25px',
+    background: '#149ddd',
+    border: '2px solid #149ddd',
+    color: '#fff',
+    borderRadius: '25px',
+    cursor: 'pointer',
+    fontSize: '14px',
     fontWeight: 500,
   },
   portfolioGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "25px",
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '25px',
   },
   portfolioCard: {
-    background: "#1a1f2e",
-    borderRadius: "10px",
-    overflow: "hidden",
+    background: '#1a1f2e',
+    borderRadius: '10px',
+    overflow: 'hidden',
   },
   portfolioImg: {
-    aspectRatio: "4/3",
-    background: "linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    aspectRatio: '4/3',
+    background: 'linear-gradient(135deg, #149ddd 0%, #0c7ab5 100%)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     fontWeight: 600,
   },
   portfolioInfo: {
-    padding: "20px",
+    padding: '20px',
   },
   portfolioDesc: {
-    color: "#a8a9b4",
-    fontSize: "14px",
+    color: '#a8a9b4',
+    fontSize: '14px',
   },
   servicesGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "25px",
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '25px',
   },
   serviceCard: {
-    background: "#1a1f2e",
-    padding: "30px",
-    borderRadius: "10px",
+    background: '#1a1f2e',
+    padding: '30px',
+    borderRadius: '10px',
   },
   serviceIcon: {
-    fontSize: "48px",
-    marginBottom: "20px",
+    fontSize: '48px',
+    marginBottom: '20px',
   },
   serviceTitle: {
-    marginBottom: "15px",
+    marginBottom: '15px',
   },
   serviceDesc: {
-    color: "#a8a9b4",
-    fontSize: "14px",
+    color: '#a8a9b4',
+    fontSize: '14px',
     lineHeight: 1.6,
   },
   contactGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "40px",
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '40px',
   },
   infoCard: {
-    background: "#1a1f2e",
-    padding: "25px",
-    borderRadius: "10px",
-    marginBottom: "20px",
+    background: '#1a1f2e',
+    padding: '25px',
+    borderRadius: '10px',
+    marginBottom: '20px',
   },
   contactForm: {
-    background: "#1a1f2e",
-    padding: "30px",
-    borderRadius: "10px",
+    background: '#1a1f2e',
+    padding: '30px',
+    borderRadius: '10px',
   },
   input: {
-    width: "100%",
-    padding: "12px",
-    marginBottom: "15px",
-    background: "#0d1525",
-    border: "1px solid #2a2a3e",
-    borderRadius: "5px",
-    color: "#fff",
-    fontSize: "14px",
-    boxSizing: "border-box",
+    width: '100%',
+    padding: '12px',
+    marginBottom: '15px',
+    background: '#0d1525',
+    border: '1px solid #2a2a3e',
+    borderRadius: '5px',
+    color: '#fff',
+    fontSize: '14px',
+    boxSizing: 'border-box',
   },
   textarea: {
-    resize: "vertical",
-    fontFamily: "inherit",
+    resize: 'vertical',
+    fontFamily: 'inherit',
   },
   submitBtn: {
-    width: "100%",
-    padding: "15px",
-    background: "#149ddd",
-    border: "none",
-    borderRadius: "25px",
-    color: "#fff",
-    fontSize: "16px",
+    width: '100%',
+    padding: '15px',
+    background: '#149ddd',
+    border: 'none',
+    borderRadius: '25px',
+    color: '#fff',
+    fontSize: '16px',
     fontWeight: 600,
-    cursor: "pointer",
+    cursor: 'pointer',
   },
   footer: {
-    background: "#0d1525",
-    padding: "30px 20px",
-    textAlign: "center",
-    borderTop: "1px solid #2a2a3e",
+    background: '#0d1525',
+    padding: '30px 20px',
+    textAlign: 'center',
+    borderTop: '1px solid #2a2a3e',
   },
   credits: {
-    fontSize: "13px",
-    color: "#a8a9b4",
-    marginTop: "5px",
+    fontSize: '13px',
+    color: '#a8a9b4',
+    marginTop: '5px',
   },
   scrollTop: {
-    position: "fixed",
-    bottom: "30px",
-    right: "30px",
-    width: "44px",
-    height: "44px",
-    background: "#149ddd",
-    border: "none",
-    borderRadius: "50%",
-    color: "#fff",
-    fontSize: "24px",
-    cursor: "pointer",
+    position: 'fixed',
+    bottom: '30px',
+    right: '30px',
+    width: '44px',
+    height: '44px',
+    background: '#149ddd',
+    border: 'none',
+    borderRadius: '50%',
+    color: '#fff',
+    fontSize: '24px',
+    cursor: 'pointer',
     zIndex: 999,
   },
 };

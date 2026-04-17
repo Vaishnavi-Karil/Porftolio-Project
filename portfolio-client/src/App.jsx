@@ -1,45 +1,52 @@
-import React, { useState, useEffect } from "react";
-import Footer from "./pages/Footer";
-import Contact from "./pages/Contacts";
-import Services from "./pages/Services";
-import Portfolio from "./pages/Portfolio";
-import Resume from "./pages/Resume";
-import Skills from "./pages/Skills";
-import About from "./pages/About";
-import Hero from "./pages/Hero";
-import { styles } from "./styles";
-import { navbar, portfolioItems, services, skills, stats } from "./contants";
-import Education from "./pages/Education";
-import Certification from "./pages/Certification";
-import { FiGithub, FiLinkedin, FiPhone } from "react-icons/fi";
+import React, { useState, useEffect } from 'react';
+import Footer from './pages/Footer';
+import Contact from './pages/Contacts';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import Resume from './pages/Resume';
+import Skills from './pages/Skills';
+import About from './pages/About';
+import Hero from './pages/Hero';
+import { styles } from './styles';
+import {
+  navbar,
+  portfolioItems,
+  services,
+  skills,
+  stats,
+  contact,
+} from './contants';
+import Education from './pages/Education';
+import Certification from './pages/Certification';
+import { FiGithub, FiLinkedin, FiPhone } from 'react-icons/fi';
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [portfolioFilter, setPortfolioFilter] = useState("all");
+  const [portfolioFilter, setPortfolioFilter] = useState('all');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
       setMobileOpen(false);
     }
   };
@@ -53,34 +60,34 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         alert(
-          "Message sent successfully! Vaishnavi will get back to you soon."
+          'Message sent successfully! Vaishnavi will get back to you soon.',
         );
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         alert(
-          "Failed to send message. Please try again or email directly at vaishnavigkariluae@gmail.com"
+          `Failed to send message. Please try again or email directly at ${contact.email}`,
         );
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
       alert(
-        "Failed to send message. Please email directly at vaishnavigkariluae@gmail.com"
+        `Failed to send message. Please email directly at ${contact.email}`,
       );
     }
   };
 
   const filteredPortfolio =
-    portfolioFilter === "all"
+    portfolioFilter === 'all'
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === portfolioFilter);
 
@@ -98,17 +105,17 @@ function App() {
 
           <div style={styles.socialLinks}>
             <a
-              href="tel:+971 528008661"
-              target="_blank"
-              title="Call"
+              href={`tel:${contact.phone.replace(/\s/g, '')}`}
+              target='_blank'
+              title='Call'
               style={styles.socialIcon}
             >
               <FiPhone />
             </a>
 
             <a
-              href="https://www.linkedin.com/in/vaishnavi-karil/"
-              target="_blank"
+              href='https://www.linkedin.com/in/vaishnavi-karil/'
+              target='_blank'
               // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
 
               style={styles.socialIcon}
@@ -117,8 +124,8 @@ function App() {
             </a>
 
             <a
-              href="https://github.com/Vaishnavi-Karil"
-              target="_blank"
+              href='https://github.com/Vaishnavi-Karil'
+              target='_blank'
               // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
               style={styles.socialIcon}
             >
@@ -145,7 +152,7 @@ function App() {
         style={styles.mobileMenuBtn}
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-        {mobileOpen ? "✕" : "☰"}
+        {mobileOpen ? '✕' : '☰'}
       </button>
 
       {/* Main Content */}
@@ -154,16 +161,36 @@ function App() {
         <Hero />
         {/* About Section */}
         <About />
-        {/* Stats Section */}
-        <section style={styles.statsSection}>
+        {/* Professional Overview: stats + resume grouped */}
+        <section
+          className='stats-bg-pattern'
+          style={{ ...styles.groupSection, ...styles.lightBg }}
+        >
           <div style={styles.container}>
+            <h2 style={styles.groupHeading}>Professional Overview</h2>
+
             <div style={styles.statsGrid}>
-              {/* const Icon = service.icon; */}
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={index} style={styles.statCard}>
-                    <div style={styles.statIcon}>
+                  <div
+                    key={index}
+                    style={{
+                      ...styles.statCard,
+                      animationDelay: `${index * 120}ms`,
+                    }}
+                    onMouseEnter={(e) => (
+                      (e.currentTarget.style.transform = 'translateY(-6px)'),
+                      (e.currentTarget.style.boxShadow =
+                        '0 18px 40px rgba(2,6,23,0.6)')
+                    )}
+                    onMouseLeave={(e) => (
+                      (e.currentTarget.style.transform = 'translateY(0)'),
+                      (e.currentTarget.style.boxShadow =
+                        '0 10px 30px rgba(2,6,23,0.6)')
+                    )}
+                  >
+                    <div style={styles.statIconCircle}>
                       <Icon />
                     </div>
                     <div style={styles.statValue}>{stat.value}</div>
@@ -172,13 +199,16 @@ function App() {
                 );
               })}
             </div>
+
+            <div style={{ marginTop: '28px' }}>
+              <Resume />
+            </div>
           </div>
         </section>
 
         {/* Skills Section */}
         <Skills skills={skills} />
-        {/* Resume Section */}
-        <Resume />
+        {/* Resume moved into Professional Overview above */}
 
         {/* Portfolio Section */}
         <Portfolio

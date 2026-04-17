@@ -1,28 +1,29 @@
-import React from "react";
-import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
-import { styles } from "../../styles";
+import React from 'react';
+import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import { styles } from '../../styles';
+import { contact } from '../../contants';
 
 const Contact = ({ formData, handleInputChange, handleSubmit }) => {
   const infoItems = [
     {
       icon: FiMapPin,
-      title: "Address",
-      text: "Dubai Silicon Oasis, Dubai, United Arab Emirates",
+      title: 'Address',
+      text: contact.address,
     },
     {
       icon: FiPhone,
-      title: "Call Us",
-      text: "+971 528008661",
+      title: 'Call Us',
+      text: contact.phone,
     },
     {
       icon: FiMail,
-      title: "Email Us",
-      text: "vaishnavigkariluae@gmail.com",
+      title: 'Email Us',
+      text: contact.email,
     },
   ];
 
   return (
-    <section id="contact" style={{ ...styles.section, ...styles.lightBg }}>
+    <section id='contact' style={{ ...styles.section, ...styles.lightBg }}>
       <div style={styles.container}>
         <h2 style={styles.sectionTitle}>Contact</h2>
         <div style={styles.contactGrid}>
@@ -33,9 +34,9 @@ const Contact = ({ formData, handleInputChange, handleSubmit }) => {
                 <div key={index} style={styles.infoCard}>
                   <h4
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
                     }}
                   >
                     <Icon /> {item.title}
@@ -48,33 +49,33 @@ const Contact = ({ formData, handleInputChange, handleSubmit }) => {
           <div style={styles.contactForm}>
             <input
               style={styles.input}
-              type="text"
-              name="name"
-              placeholder="Your Name"
+              type='text'
+              name='name'
+              placeholder='Your Name'
               value={formData.name}
               onChange={handleInputChange}
             />
             <input
               style={styles.input}
-              type="email"
-              name="email"
-              placeholder="Your Email"
+              type='email'
+              name='email'
+              placeholder='Your Email'
               value={formData.email}
               onChange={handleInputChange}
             />
             <input
               style={styles.input}
-              type="text"
-              name="subject"
-              placeholder="Subject"
+              type='text'
+              name='subject'
+              placeholder='Subject'
               value={formData.subject}
               onChange={handleInputChange}
             />
             <textarea
               style={{ ...styles.input, ...styles.textarea }}
-              name="message"
-              placeholder="Message"
-              rows="6"
+              name='message'
+              placeholder='Message'
+              rows='6'
               value={formData.message}
               onChange={handleInputChange}
             />

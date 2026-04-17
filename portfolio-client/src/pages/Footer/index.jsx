@@ -1,5 +1,6 @@
-import React from "react";
-import { styles } from "../../styles";
+import React from 'react';
+import { styles } from '../../styles';
+import { contact } from '../../contants';
 
 const Footer = () => {
   return (
@@ -7,8 +8,8 @@ const Footer = () => {
       <div style={styles.container}>
         <p>© Copyright . All Rights Reserved</p>
         <p style={styles.credits}>
-          Designed & Developed by Vaishnavi Karil | Dubai, UAE | +971 52 800
-          8661
+          Designed & Developed by {contact.name} | {contact.location} |{' '}
+          {contact.phone}
         </p>
       </div>
     </footer>
