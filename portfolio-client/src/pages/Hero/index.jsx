@@ -1,22 +1,22 @@
 import React from "react";
-import { styles } from "../../styles";
+import styles from "./Hero.module.css";
 import Typewriter from "../../components/Typewriter";
 
 const Hero = () => {
   return (
-    <section id="hero" style={styles.heroSection}>
-      <div style={styles.heroBgOverlay}></div>
-      <div style={styles.heroContent}>
-        <h1 style={styles.heroTitle}>Vaishnavi Karil</h1>
-        <p style={styles.heroSubtitle}>
+    <section id="hero" className={styles.heroSection}>
+      <div className={styles.heroBgOverlay}></div>
+      <div className={styles.heroContent}>
+        <h1 className={styles.heroTitle}>Vaishnavi Karil</h1>
+        <p className={styles.heroSubtitle}>
           Creative <Typewriter />
         </p>
       </div>
-      <div style={styles.heroImageContainer}>
+      <div className={styles.heroImageContainer}>
         <img
           src="/assets/img/Gemini_profile_photo.png"
           alt="Vaishnavi Karil - Profile"
-          style={styles.heroImage}
+          className={styles.heroImage}
         />
       </div>
     </section>

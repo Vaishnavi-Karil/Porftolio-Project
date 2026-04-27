@@ -1,0 +1,406 @@
+.resumeSection {
+  padding: 50px 20px;
+}
+
+.resumeContainer {
+  /* max-width: 1140px; */
+  margin: 0 2rem;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #2a2a3e;
+  color: #fff;
+}
+
+.resumeTopGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+  margin-bottom: 52px;
+  align-items: stretch;
+}
+
+/* Summary Card */
+.resumeSummaryCard {
+  background: linear-gradient(135deg, rgba(20, 157, 221, 0.04) 0%, rgb(2 6 17 / 85%) 100%);
+  /* background: linear-gradient(135deg, rgba(20,157,221,0.04) 0%, rgba(18,24,38,0.85) 100%); */
+  border: 1px solid rgba(20,157,221,0.15);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.resumeSummaryCard:hover {
+  border-color: rgba(20,157,221,0.38);
+  box-shadow: 0 8px 40px rgba(20,157,221,0.09);
+}
+
+.summaryAccentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #149ddd 0%, #0c7ab5 100%);
+  border-radius: 16px 0 0 16px;
+}
+
+.summaryTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.summaryBody {
+  color: #a8a9b4;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.summaryPillRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.summaryPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+
+  border: 1px solid rgb(20, 157, 221);
+  padding: 10px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.summaryPillGreen {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(74,222,128,0.15);
+  border: 1px solid rgba(74,222,128,0.5);
+  padding: 10px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+/* Stats Quad */
+.statsQuad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.statCardNew {
+  /* background : linear-gradient(135deg, rgba(20, 157, 221, 0.04) 0%, rgb(2 6 17 / 85%) 100%); */
+  /* background: linear-gradient(135deg, rgba(8,20,30,0.92) 0%, rgba(12,20,30,0.75) 100%); */
+  border: 1px solid rgba(20,157,221,0.1);
+  border-radius: 12px;
+  padding: 18px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.statCardNew:hover {
+  transform: translateY(-5px);
+  border-color: rgba(20,157,221,0.32);
+  box-shadow: 0 14px 36px rgba(20,157,221,0.1);
+}
+
+.statIconBox {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(20,157,221,0.15) 0%, rgba(12,122,181,0.08) 100%);
+  border: 1px solid rgba(20,157,221,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #149ddd;
+  margin-bottom: 6px;
+}
+
+.statNumVal {
+  font-size: 28px;
+  font-weight: 800;
+  color: #12b0ff;
+  line-height: 1;
+}
+
+.statNumLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e2e4ea;
+}
+
+.statNumSub {
+  font-size: 10px;
+  color: #556070;
+  line-height: 1.4;
+}
+
+/* Work History Divider */
+.expDividerRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 40px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(20,157,221,0.3), transparent);
+}
+
+.dividerCaption {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #149ddd;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+/* Timeline */
+.timelineWrapper {
+  position: relative;
+  padding-left: 36px;
+}
+
+.timelineRailLine {
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, #149ddd 0%, rgba(20,157,221,0.2) 65%, transparent 100%);
+  border-radius: 2px;
+}
+
+.timelineJobItem {
+  position: relative;
+  margin-bottom: 22px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timelineDotDefault {
+  position: absolute;
+  left: -36px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #040b14;
+  border: 2px solid rgba(20,157,221,0.35);
+  z-index: 2;
+  transition: border-color 0.3s ease;
+}
+
+.timelineDotActive {
+  position: absolute;
+  left: -36px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(20,157,221,0.2);
+  border: 2px solid #149ddd;
+  box-shadow: 0 0 8px rgba(20,157,221,0.4);
+  z-index: 2;
+}
+
+/* Experience Card */
+.expCard {
+  /* background: linear-gradient(135deg, rgba(20, 157, 221, 0.04) 0%, rgb(2 6 17 / 85%) 100%); */
+  /* background: linear-gradient(135deg, rgba(20,157,221,0.04) 0%, rgba(18,24,38,0.85) 100%); */
+  /* border: 1px solid rgba(20,157,221,0.15);
+  border-radius: 16px;
+  padding: 24px 26px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; */
+/* box-shadow: 0 8px 40px rgba(20, 157, 221, 0.09); */
+     border-radius: 16px;
+    padding: 24px 26px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.expCard:hover {
+  border-color: rgba(20,157,221,0.38);
+  /* box-shadow: 0 8px 40px rgba(20,157,221,0.09);
+  transform: translateY(-2px); */
+      transform: translateX(20px);
+    box-shadow: 0 8px 24px rgba(20, 157, 221, 0.1);
+}
+
+.expCardTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.expCompanyName {
+  font-size: 18px;
+  font-weight: 700;
+  color: #149ddd;
+  margin: 0 0 6px;
+}
+
+.expRoleTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.expBadgeGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.expPeriodPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  /* background: rgba(20,157,221,0.1); */
+  color: #149ddd;
+  border: 1px solid rgba(20,157,221,0.25);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.expPeriodPillActive {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  /* background: rgba(20,157,221,0.18); */
+  color: #12b0ff;
+  border: 1px solid rgba(20,157,221,0.45);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.expLocationPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #a8a9b4;
+}
+
+/* Bullet List */
+.expBulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.expBulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: #a8a9b4;
+  line-height: 1.7;
+}
+
+.bulletDot {
+  display: inline-block;
+  min-width: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(20,157,221,0.65);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* Tech Chip Tags */
+.techTagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.techChip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+
+  border: 1px solid rgb(20, 157, 221);
+  padding: 10px 16px;
+  border-radius: 25px;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .resumeTopGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsQuad {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .expCardTopRow {
+    flex-direction: column;
+  }
+
+  .expBadgeGroup {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .timelineWrapper {
+    padding-left: 28px;
+  }
+
+  .timelineDotDefault,
+  .timelineDotActive {
+    left: -28px;
+  }
+}

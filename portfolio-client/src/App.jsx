@@ -7,13 +7,12 @@ import Resume from './pages/Resume';
 import Skills from './pages/Skills';
 import About from './pages/About';
 import Hero from './pages/Hero';
-import { styles } from './styles';
+import appStyles from './App.module.css';
 import {
   navbar,
   portfolioItems,
   services,
   skills,
-  stats,
   contact,
 } from './contants';
 import Education from './pages/Education';
@@ -24,6 +23,8 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [portfolioFilter, setPortfolioFilter] = useState('all');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeNav, setActiveNav] = useState('hero');
+  const [hoveredNav, setHoveredNav] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,6 +49,7 @@ function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setMobileOpen(false);
+      setActiveNav(id);
     }
   };
 
@@ -92,23 +94,24 @@ function App() {
       : portfolioItems.filter((item) => item.category === portfolioFilter);
 
   return (
-    <div style={styles.app}>
+    <div className={appStyles.app}>
       {/* Sidebar Navigation */}
       <aside
-        style={{ ...styles.sidebar, ...(mobileOpen ? styles.sidebarOpen : {}) }}
+        className={`${appStyles.sidebar} ${mobileOpen ? appStyles.sidebarOpen : ''}`}
       >
-        <div style={styles.sidebarContent}>
-          <div style={styles.profileSection}>
-            <div style={styles.avatar}></div>
-            <h1 style={styles.profileName}>Vaishnavi Karil</h1>
+        <div className={appStyles.sidebarContent}>
+          <div className={appStyles.profileSection}>
+            <h1 className={appStyles.profileName}>Vaishnavi Karil</h1>
+            <p className={appStyles.profileRole}>Full Stack Developer</p>
+            <div className={appStyles.profileAccentBar} />
           </div>
 
-          <div style={styles.socialLinks}>
+          <div className={appStyles.socialLinks}>
             <a
               href={`tel:${contact.phone.replace(/\s/g, '')}`}
               target='_blank'
               title='Call'
-              style={styles.socialIcon}
+              className={appStyles.socialIcon}
             >
               <FiPhone />
             </a>
@@ -116,9 +119,7 @@ function App() {
             <a
               href='https://www.linkedin.com/in/vaishnavi-karil/'
               target='_blank'
-              // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
-
-              style={styles.socialIcon}
+              className={appStyles.socialIcon}
             >
               <FiLinkedin />
             </a>
@@ -126,89 +127,53 @@ function App() {
             <a
               href='https://github.com/Vaishnavi-Karil'
               target='_blank'
-              // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
-              style={styles.socialIcon}
+              className={appStyles.socialIcon}
             >
               <FiGithub />
             </a>
           </div>
 
-          <nav style={styles.navMenu}>
-            {navbar.map((item) => (
-              <button
-                key={item.id}
-                style={styles.navButton}
-                onClick={() => scrollToSection(item.id)}
-              >
-                {item.icon()} {item.text}
-              </button>
-            ))}
+          <nav className={appStyles.navMenu}>
+            {navbar.map((item) => {
+              const isActive = activeNav === item.id;
+              const isHovered = hoveredNav === item.id;
+              return (
+                <button
+                  key={item.id}
+                  className={isActive ? appStyles.navButtonActive : appStyles.navButton}
+                  onClick={() => scrollToSection(item.id)}
+                  onMouseEnter={() => setHoveredNav(item.id)}
+                  onMouseLeave={() => setHoveredNav(null)}
+                >
+                  {isActive && <span className={appStyles.navActiveBorder} />}
+                  <span className={appStyles.navIcon}>{item.icon()}</span>
+                  {item.text}
+                </button>
+              );
+            })}
           </nav>
         </div>
       </aside>
 
       {/* Mobile Menu Button */}
       <button
-        style={styles.mobileMenuBtn}
+        className={appStyles.mobileMenuBtn}
         onClick={() => setMobileOpen(!mobileOpen)}
       >
         {mobileOpen ? '✕' : '☰'}
       </button>
 
       {/* Main Content */}
-      <main style={styles.mainContent}>
+      <main className={appStyles.mainContent}>
         {/* Hero Section */}
         <Hero />
         {/* About Section */}
         <About />
-        {/* Professional Overview: stats + resume grouped */}
-        <section
-          className='stats-bg-pattern'
-          style={{ ...styles.groupSection, ...styles.lightBg }}
-        >
-          <div style={styles.container}>
-            <h2 style={styles.groupHeading}>Professional Overview</h2>
-
-            <div style={styles.statsGrid}>
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div
-                    key={index}
-                    style={{
-                      ...styles.statCard,
-                      animationDelay: `${index * 120}ms`,
-                    }}
-                    onMouseEnter={(e) => (
-                      (e.currentTarget.style.transform = 'translateY(-6px)'),
-                      (e.currentTarget.style.boxShadow =
-                        '0 18px 40px rgba(2,6,23,0.6)')
-                    )}
-                    onMouseLeave={(e) => (
-                      (e.currentTarget.style.transform = 'translateY(0)'),
-                      (e.currentTarget.style.boxShadow =
-                        '0 10px 30px rgba(2,6,23,0.6)')
-                    )}
-                  >
-                    <div style={styles.statIconCircle}>
-                      <Icon />
-                    </div>
-                    <div style={styles.statValue}>{stat.value}</div>
-                    <div style={styles.statLabel}>{stat.label}</div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div style={{ marginTop: '28px' }}>
-              <Resume />
-            </div>
-          </div>
-        </section>
+        {/* Career Journey: summary + stats + experience timeline */}
+        <Resume />
 
         {/* Skills Section */}
         <Skills skills={skills} />
-        {/* Resume moved into Professional Overview above */}
 
         {/* Portfolio Section */}
         <Portfolio
@@ -232,7 +197,7 @@ function App() {
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
-        <button style={styles.scrollTop} onClick={scrollToTop}>
+        <button className={appStyles.scrollTop} onClick={scrollToTop}>
           ↑
         </button>
       )}
@@ -241,16 +206,3 @@ function App() {
 }
 export default App;
 
-// import React from "react";
-// import { manageImages } from "./manageImages";
-// const App = () => {
-//   const { src: heroImg } = manageImages.heroImage;
-//   return (
-//     <div>
-//       <h1>App</h1>
-//       <img src={heroImg} alt="" />
-//     </div>
-//   );
-// };
-
-// export default App;

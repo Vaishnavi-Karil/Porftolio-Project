@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
-import { styles } from '../../styles';
+import styles from './Contacts.module.css';
 import { contact } from '../../contants';
 
 const Contact = ({ formData, handleInputChange, handleSubmit }) => {
@@ -23,32 +23,26 @@ const Contact = ({ formData, handleInputChange, handleSubmit }) => {
   ];
 
   return (
-    <section id='contact' style={{ ...styles.section, ...styles.lightBg }}>
-      <div style={styles.container}>
-        <h2 style={styles.sectionTitle}>Contact</h2>
-        <div style={styles.contactGrid}>
+    <section id='contact' className={styles.contactSection}>
+      <div className={styles.contactContainer}>
+        <h2 className={styles.sectionTitle}>Contact</h2>
+        <div className={styles.contactGrid}>
           <div>
             {infoItems.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} style={styles.infoCard}>
-                  <h4
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                    }}
-                  >
+                <div key={index} className={styles.infoCard}>
+                  <h4 className={styles.infoTitle}>
                     <Icon /> {item.title}
                   </h4>
-                  <p>{item.text}</p>
+                  <p className={styles.infoText}>{item.text}</p>
                 </div>
               );
             })}
           </div>
-          <div style={styles.contactForm}>
+          <div className={styles.contactForm}>
             <input
-              style={styles.input}
+              className={styles.input}
               type='text'
               name='name'
               placeholder='Your Name'
@@ -56,7 +50,7 @@ const Contact = ({ formData, handleInputChange, handleSubmit }) => {
               onChange={handleInputChange}
             />
             <input
-              style={styles.input}
+              className={styles.input}
               type='email'
               name='email'
               placeholder='Your Email'
@@ -64,7 +58,7 @@ const Contact = ({ formData, handleInputChange, handleSubmit }) => {
               onChange={handleInputChange}
             />
             <input
-              style={styles.input}
+              className={styles.input}
               type='text'
               name='subject'
               placeholder='Subject'
@@ -72,14 +66,14 @@ const Contact = ({ formData, handleInputChange, handleSubmit }) => {
               onChange={handleInputChange}
             />
             <textarea
-              style={{ ...styles.input, ...styles.textarea }}
+              className={`${styles.input} ${styles.textarea}`}
               name='message'
               placeholder='Message'
               rows='6'
               value={formData.message}
               onChange={handleInputChange}
             />
-            <button style={styles.submitBtn} onClick={handleSubmit}>
+            <button className={styles.submitBtn} onClick={handleSubmit}>
               Send Message
             </button>
           </div>

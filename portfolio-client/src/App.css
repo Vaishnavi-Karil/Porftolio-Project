@@ -1,1 +1,155 @@
 
+/* Container for the whole app */
+.app {
+  display: flex;
+  background-color: #040b14; /* Deep dark background */
+  color: #fff;
+}
+
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(20, 157, 221, 0.2);
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px 20px;
+}
+
+.profileSection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profileName {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.profileRole {
+  color: #149ddd;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.profileAccentBar {
+  width: 50px;
+  height: 3px;
+  background: #149ddd;
+  margin: 15px auto;
+  box-shadow: 0 0 10px #149ddd;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(20, 157, 221, 0.1);
+}
+
+.socialIcon:hover {
+  background: #149ddd;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(20, 157, 221, 0.5);
+}
+
+/* --- Nav Menu Design --- */
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navButton, .navButtonActive {
+  background: transparent;
+  border: none;
+  color: #a8a9b4;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+
+.navIcon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.navButton:hover {
+  color: #fff;
+  background: rgba(20, 157, 221, 0.1);
+}
+
+.navButton:hover .navIcon {
+  transform: scale(1.2);
+  color: #149ddd;
+}
+
+/* Active State with Glow */
+.navButtonActive {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(20, 157, 221, 0.15) 0%, transparent 100%);
+}
+
+.navActiveBorder {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background: #149ddd;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 0 10px rgba(20, 157, 221, 0.8);
+}
+
+.navButtonActive .navIcon {
+  color: #149ddd;
+}
+
+/* Content offset to account for fixed sidebar */
+.mainContent {
+  margin-left: 300px;
+  width: calc(100% - 300px);
+}
+
+@media (max-width: 1199px) {
+  .sidebar { left: -300px; }
+  .sidebarOpen { left: 0; }
+  .mainContent { margin-left: 0; width: 100%; }
+}

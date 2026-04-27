@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
+import styles from "./SocialIcon.module.css";
 
 const SocialIcon = ({
   icon: Icon,
@@ -72,27 +73,12 @@ const SocialIcon = ({
       href={href}
       target={target}
       title={title}
-      className={`social-icon-wrapper ${className} ${isActive ? "active" : ""}`}
+      className={`${styles.socialIcon} ${isActive ? styles.socialIconActive : ''} ${className}`}
       onClick={handleClick}
       rel={target === "_blank" ? "noopener noreferrer" : ""}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "31px",
-        height: "31px",
-        background: isActive ? "rgb(20, 157, 221)" : "#2a2a3e",
-        borderRadius: "50%",
-        color: isActive ? "#fff" : "#149ddd",
-        textDecoration: "none",
-        fontSize: "12px",
-        transition: "all 0.3s ease",
-        transform: isActive ? "scale(1.1)" : "scale(1)",
-        cursor: "pointer",
-      }}
     >
       {externalSvg ? (
-        <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span className={styles.iconWrapper}>
           {externalSvg}
         </span>
       ) : (

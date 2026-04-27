@@ -1,14 +1,6 @@
-import React from 'react';
-import { styles } from '../../styles';
-import { FiMail, FiPhone, FiMessageSquare } from 'react-icons/fi';
-import { FiCode, FiDatabase, FiLayers, FiGlobe } from 'react-icons/fi';
-
-const highlights = [
-  { label: '3+ Years Experience', icon: '💼' },
-  { label: 'MERN Stack Developer', icon: '⚛️' },
-  { label: 'Immediate Joiner', icon: '⚡' },
-  { label: 'Open to Relocation', icon: '🌍' },
-];
+import React, { useState } from 'react';
+import styles from './CareerOverview.module.css';
+import { FiMail, FiPhone, FiMessageSquare, FiCode, FiDatabase, FiLayers, FiGlobe } from 'react-icons/fi';
 
 const stats = [
   { label: '5+ Real Projects Delivered', icon: FiCode },
@@ -18,20 +10,15 @@ const stats = [
 ];
 
 const CareerOverview = () => {
-  return (
-    <section id='career' style={styles.section}>
-      <div style={styles.container}>
-        <h2 style={styles.sectionTitle}>Career Overview</h2>
+  const [hoveredStat, setHoveredStat] = useState(null);
 
-        {/* Professional Summary */}
-        <p
-          style={{
-            color: '#a8a9b4',
-            fontSize: '15px',
-            lineHeight: '1.7',
-            marginBottom: '24px',
-          }}
-        >
+  return (
+    <section id='career' className={styles.careerSection}>
+      <div className={styles.careerContainer}>
+        <h2 className={styles.sectionTitle}>Career Overview</h2>
+
+        {/* Professional Summary - matches About section typography */}
+        <p className={styles.careerDescription}>
           Building scalable and high-performance web applications using modern
           technologies like React, Node.js, and MongoDB. Focused on delivering
           clean, user-centric solutions that solve real-world business problems.
@@ -39,70 +26,46 @@ const CareerOverview = () => {
           attention to performance, usability, and maintainability.
         </p>
 
-        {/* Highlights as Small Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '12px',
-            marginBottom: '20px',
-          }}
-        >
-          {/* {highlights.map((item, index) => (
-            <div
-              key={index}
-              style={{
-                background: 'rgba(20, 157, 221, 0.08)',
-                border: '1px solid rgba(20, 157, 221, 0.15)',
-                padding: '12px 16px',
-                borderRadius: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                transition: 'all 0.3s ease',
-              }}
-            >
-              <span style={{ fontSize: '18px' }}>{item.icon}</span>
-              <span style={{ color: '#fff', fontSize: '13px', fontWeight: 500 }}>
-                {item.label}
-              </span>
-            </div>
-          ))} */}
+        {/* Highlights Pills - matching About section highlightBadge style */}
+        <div className={styles.highlightsGrid}>
+          <div className={styles.highlightBadge}>
+            <span className={styles.highlightIcon}>💼</span>
+            <span className={styles.highlightText}>3+ Years Experience</span>
+          </div>
+          <div className={styles.highlightBadge}>
+            <span className={styles.highlightIcon}>⚛️</span>
+            <span className={styles.highlightText}>MERN Stack Developer</span>
+          </div>
+          <div className={styles.highlightBadge}>
+            <span className={styles.highlightIcon}>⚡</span>
+            <span className={styles.highlightText}>Immediate Joiner</span>
+          </div>
+          <div className={styles.highlightBadge}>
+            <span className={styles.highlightIcon}>🌍</span>
+            <span className={styles.highlightText}>Open to Relocation</span>
+          </div>
         </div>
 
-        {/* Compact Stats Row */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '12px',
-            marginTop: '20px',
-          }}
-        >
+        {/* Compact Stats Row - matching About section card style with hover */}
+        <div className={styles.statsRow}>
           {stats.map((stat, index) => {
             const Icon = stat.icon;
+            const isHovered = hoveredStat === index;
             return (
               <div
                 key={index}
+                className={styles.statItem}
+                onMouseEnter={() => setHoveredStat(index)}
+                onMouseLeave={() => setHoveredStat(null)}
                 style={{
-                  background: 'rgba(20, 157, 221, 0.08)',
-                  border: '1px solid rgba(20, 157, 221, 0.15)',
-                  padding: '12px 16px',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  transition: 'all 0.3s ease',
+                  transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
+                  boxShadow: isHovered
+                    ? '0 6px 20px rgba(20, 157, 221, 0.15)'
+                    : 'none',
                 }}
               >
-                <Icon style={{ color: '#149ddd', fontSize: '18px' }} />
-                <span
-                  style={{
-                    color: '#a8a9b4',
-                    fontSize: '12px',
-                    fontWeight: 500,
-                  }}
-                >
+                <Icon className={styles.statIcon} />
+                <span className={styles.statLabel}>
                   {stat.label}
                 </span>
               </div>
@@ -110,68 +73,40 @@ const CareerOverview = () => {
           })}
         </div>
 
-        {/* Resume Access & Contact */}
-        <div style={styles.infoGrid}>
-          <div style={styles.infoCard}>
-            <h3
-              style={{
-                ...styles.heading,
-                fontSize: '18px',
-                marginBottom: '10px',
-              }}
-            >
+        {/* Resume Access & Contact - using shared infoCard style */}
+        <div className={styles.infoGrid}>
+          <div className={styles.infoCard}>
+            <h3 className={styles.infoTitle}>
               Resume Available Upon Request
             </h3>
-            <p style={styles.infoText}>
+            <p className={styles.infoText}>
               I prefer to share my detailed resume directly with recruiters and
               hiring managers for a personalized discussion about my experience.
               Feel free to reach out via email or phone to receive it.
             </p>
           </div>
 
-          <div style={styles.infoCard}>
-            <h3
-              style={{
-                ...styles.heading,
-                fontSize: '18px',
-                marginBottom: '15px',
-              }}
-            >
+          <div className={styles.infoCard}>
+            <h3 className={styles.infoTitle}>
               Get In Touch
             </h3>
-            <div
-              style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
-            >
-              <a
-                href='mailto:vaishnavigkaril@gmail.com'
-                style={{ ...styles.achortag, gap: '10px' }}
-              >
-                <FiMail style={{ color: '#149ddd', fontSize: '18px' }} />
-                <span style={{ color: '#a8a9b4', fontSize: '14px' }}>
-                  vaishnavigkaril@gmail.com
-                </span>
+            <div className={styles.contactLinks}>
+              <a href='mailto:vaishnavigkaril@gmail.com' className={styles.contactLink}>
+                <FiMail className={styles.contactIcon} />
+                <span>vaishnavigkaril@gmail.com</span>
               </a>
-              <a
-                href='tel:+919111706639'
-                style={{ ...styles.achortag, gap: '10px' }}
-              >
-                <FiPhone style={{ color: '#149ddd', fontSize: '18px' }} />
-                <span style={{ color: '#a8a9b4', fontSize: '14px' }}>
-                  +91 9111706639
-                </span>
+              <a href='tel:+919111706639' className={styles.contactLink}>
+                <FiPhone className={styles.contactIcon} />
+                <span>+91 9111706639</span>
               </a>
               <a
                 href='https://wa.me/919111706639'
                 target='_blank'
                 rel='noopener noreferrer'
-                style={{ ...styles.achortag, gap: '10px' }}
+                className={styles.contactLink}
               >
-                <FiMessageSquare
-                  style={{ color: '#149ddd', fontSize: '18px' }}
-                />
-                <span style={{ color: '#a8a9b4', fontSize: '14px' }}>
-                  WhatsApp
-                </span>
+                <FiMessageSquare className={styles.contactIcon} />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>

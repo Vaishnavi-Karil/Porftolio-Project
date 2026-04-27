@@ -1,0 +1,57 @@
+.servicesSection {
+  padding: 50px 20px;
+}
+
+.servicesContainer {
+  /* max-width: 1140px; */
+  margin: 0 2rem;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #2a2a3e;
+  color: #fff;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.serviceCard {
+  /* background: #1a1f2e; */
+  padding: 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(20, 157, 221, 0.2);
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(20, 157, 221, 0.12);
+  border: 1px solid rgba(20, 157, 221, 0.2);
+}
+
+.serviceIcon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #149ddd;
+}
+
+.serviceTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.serviceDesc {
+  color: #a8a9b4;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}

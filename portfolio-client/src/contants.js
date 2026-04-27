@@ -4,12 +4,16 @@ import {
   FiAward,
   FiBook,
   FiBriefcase,
+  FiCalendar,
+  FiCheckCircle,
   FiClipboard,
   FiCode,
   FiFileText,
+  FiGlobe,
   FiHome,
   FiLayout,
   FiMail,
+  FiMapPin,
   FiMonitor,
   FiSettings,
   FiTag,
@@ -338,4 +342,98 @@ export const navbar = [
   { text: 'Education', icon: FiBook, id: 'education' },
   { text: 'Services', icon: FiSettings, id: 'services' },
   { text: 'Contact', icon: FiMail, id: 'contact' },
+];
+
+// ── Resume Section ─────────────────────────────────────────
+
+export const resumeSummary = {
+  heading: 'Senior MERN Stack Developer',
+  text: `I build scalable, high-performance web applications that users love and
+businesses rely on. With expertise spanning React.js, Next.js, Node.js, PostgreSQL,
+and AWS, I bridge the gap between elegant frontend experiences and resilient backend
+systems — delivering solutions that are fast, maintainable, and built for growth.`,
+  pills: [
+    { label: 'Pune, India',       icon: FiMapPin,       type: 'default'   },
+    { label: 'Immediate Joiner',  icon: FiCheckCircle,  type: 'available' },
+    { label: 'Open to Relocate',  icon: FiGlobe,        type: 'default'   },
+  ],
+};
+
+export const resumeStats = [
+  { value: '5+',  label: 'Years in Tech',        sub: 'Full-Stack Engineering', icon: FiBriefcase },
+  { value: '10+', label: 'Projects Shipped',      sub: 'Frontend & Backend',    icon: FiCode      },
+  { value: '4',   label: 'Companies',             sub: 'Diverse Domains',       icon: FiAward     },
+  { value: '8+',  label: 'Technologies',          sub: 'Production-Ready',      icon: FiTool      },
+];
+
+export const resumeExperience = [
+  {
+    company: 'NeoSOFT Private Limited',
+    role: 'Senior Software Developer — MERN Stack',
+    period: '2025 – Present',
+    location: 'Pune, India',
+    current: true,
+    highlights: [
+      'Architected a full-stack Blog Platform with Next.js, MySQL, CRUD operations, and secure user authentication',
+      'Built a real-time Kanban board with drag-and-drop task management using React.js and JSON Server',
+      'Engineered state management patterns that eliminated UI sync issues across complex multi-view flows',
+      'Designed and maintained RESTful backend APIs supporting rapid, parallel frontend development',
+    ],
+    tech: ['Next.js', 'React.js', 'MySQL', 'JSON Server', 'REST APIs', 'Authentication'],
+  },
+  {
+    company: 'Axonic Health Pvt. Ltd.',
+    role: 'Software Developer — Full Stack React & Node',
+    period: '2022 – 2024',
+    location: 'Pune, India',
+    current: false,
+    highlights: [
+      'Built hospital resource management dashboards with React.js and Material UI serving 500+ daily active users',
+      'Designed and integrated REST APIs using Node.js, Express, and PostgreSQL for a high-availability backend',
+      'Developed interactive data visualisations with ApexCharts for real-time clinical and business reporting',
+      'Implemented role-based access control and state management with Redux Toolkit and React Query',
+    ],
+    tech: ['React.js', 'Node.js', 'PostgreSQL', 'Redux Toolkit', 'ApexCharts', 'Material UI'],
+  },
+  {
+    company: 'Phixman Technologies Pvt. Ltd.',
+    role: 'Full Stack Developer — React.js & Admin Dashboard',
+    period: '2021 – 2022',
+    location: 'Pune, India',
+    current: false,
+    highlights: [
+      'Developed a multi-role Admin Dashboard managing sub-admins, service providers, and customers at scale',
+      'Implemented time scheduling, automated workflows, and real-time push notification systems',
+      'Built invoice management and revenue-sharing modules across multi-category electronics services',
+      'Drove feedback-loop improvements that measurably increased operational efficiency and customer satisfaction',
+    ],
+    tech: ['React.js', 'Node.js', 'REST APIs', 'Real-time Notifications', 'Workflow Automation'],
+  },
+  {
+    company: 'Infobyd Software Solution Pvt. Ltd.',
+    role: 'Software Developer — React Native Mobile Application',
+    period: '2020 – 2021',
+    location: 'Indore, India',
+    current: false,
+    highlights: [
+      'Delivered a dual-platform Stackholder product: Web Admin Dashboard and React Native mobile app for users',
+      'Designed a complete mobile UI with accessible, responsive layouts across Android and iOS',
+      'Built auction, bidding, and direct-sell features with real-time notifications and transaction processing',
+      'Implemented document upload, multi-level approval workflows, and role-based permission systems',
+    ],
+    tech: ['React Native', 'React.js', 'REST APIs', 'Authentication', 'Mobile UI', 'Role-Based Access'],
+  },
+  {
+    company: 'Asprarrow Technologies',
+    role: 'Trainee Developer — React.js & Node.js',
+    period: '2019 – 2020',
+    location: 'Indore, India',
+    current: false,
+    highlights: [
+      'Contributed to full-stack web application development using JavaScript, React.js, and Node.js',
+      'Built RESTful APIs and integrated frontend modules shipped to production',
+      'Adopted agile development practices, Git version control, and collaborative code-review workflows',
+    ],
+    tech: ['React.js', 'Node.js', 'JavaScript', 'REST APIs', 'Git'],
+  },
 ];

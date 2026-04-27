@@ -1,0 +1,23 @@
+.footer {
+  /* background: #0d1525; */
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #2a2a3e;
+}
+
+.footerContainer {
+  /* max-width: 1140px; */
+  margin: 0 2rem;
+}
+
+.footerText {
+  color: #a8a9b4;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.credits {
+  font-size: 13px;
+  color: #a8a9b4;
+  margin-top: 5px;
+}

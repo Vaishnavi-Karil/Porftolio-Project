@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from '../../styles';
+import styles from './Portfolio.module.css';
 
 const Portfolio = ({
   portfolioFilter,
@@ -7,64 +7,42 @@ const Portfolio = ({
   setPortfolioFilter,
 }) => {
   return (
-    <section id='portfolio' style={{ ...styles.section, ...styles.lightBg }}>
-      <div style={styles.container}>
-        <h2 style={styles.sectionTitle}>Portfolio</h2>
-        <div style={styles.portfolioFilters}>
+    <section id='portfolio' className={styles.portfolioSection}>
+      <div className={styles.portfolioContainer}>
+        <h2 className={styles.sectionTitle}>Portfolio</h2>
+        <div className={styles.portfolioFilters}>
           {['all', 'web', 'fullstack', 'mobile', 'backend'].map((filter) => (
             <button
               key={filter}
-              style={
-                portfolioFilter === filter
-                  ? styles.filterBtnActive
-                  : styles.filterBtn
-              }
+              className={portfolioFilter === filter ? styles.filterBtnActive : styles.filterBtn}
               onClick={() => setPortfolioFilter(filter)}
             >
               {filter.charAt(0).toUpperCase() + filter.slice(1)}
             </button>
           ))}
         </div>
-        <div style={styles.portfolioGrid}>
+        <div className={styles.portfolioGrid}>
           {filteredPortfolio.map((item) => (
-            <div key={item.id} style={styles.portfolioCard}>
-              {/* <video
-                style={{
-                  width: "100%",
-                  aspectRatio: "4 / 3",
-                  objectFit: "cover",
-                  borderRadius: "8px",
-                }}
-                muted
-                loop
-                onMouseEnter={(e) => e.currentTarget.play()}
-                onMouseLeave={(e) => e.currentTarget.pause()}
-              >
-                <source src={item.videoLink} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video> */}
-
-              <div style={styles.portfolioInfo}>
+            <div key={item.id} className={styles.portfolioCard}>
+              <div className={styles.portfolioInfo}>
                 <a
                   href={item.productionLink}
                   target='_blank'
                   title='View Live Project'
-                  style={styles.achortag}
+                  className={styles.portfolioTitle}
                 >
                   <h4>{item.title}</h4>
                   <span>
                     <svg
-                      class='inline'
                       data-testid='geist-icon'
                       height='16'
-                      stroke-linejoin='round'
+                      strokeLinejoin='round'
                       viewBox='0 0 16 16'
                       width='16'
-                      // style="color: currentcolor;"
                     >
                       <path
-                        fill-rule='evenodd'
-                        clip-rule='evenodd'
+                        fillRule='evenodd'
+                        clipRule='evenodd'
                         d='M11.5 9.75V11.25C11.5 11.3881 11.3881 11.5 11.25 11.5H4.75C4.61193 11.5 4.5 11.3881 4.5 11.25L4.5 4.75C4.5 4.61193 4.61193 4.5 4.75 4.5H6.25H7V3H6.25H4.75C3.7835 3 3 3.7835 3 4.75V11.25C3 12.2165 3.7835 13 4.75 13H11.25C12.2165 13 13 12.2165 13 11.25V9.75V9H11.5V9.75ZM8.5 3H9.25H12.2495C12.6637 3 12.9995 3.33579 12.9995 3.75V6.75V7.5H11.4995V6.75V5.56066L8.53033 8.52978L8 9.06011L6.93934 7.99945L7.46967 7.46912L10.4388 4.5H9.25H8.5V3Z'
                         fill='currentColor'
                       ></path>
@@ -72,13 +50,12 @@ const Portfolio = ({
                   </span>
                 </a>
 
-                <p style={styles.portfolioDesc}>{item.description}</p>
+                <p className={styles.portfolioDesc}>{item.description}</p>
 
                 <a
                   href={item.githubLink}
                   target='_blank'
-                  // style="width: 36px; height: 36px; background: rgb(42, 42, 62); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgb(20, 157, 221); text-decoration: none;"
-                  style={styles.socialIcon}
+                  className={styles.githubLink}
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -95,7 +72,6 @@ const Portfolio = ({
           ))}
         </div>
       </div>
-      {/* Dialog */}
     </section>
   );
 };

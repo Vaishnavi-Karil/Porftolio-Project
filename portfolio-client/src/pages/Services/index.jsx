@@ -1,21 +1,21 @@
 import React from "react";
-import { styles } from "../../styles";
+import styles from "./Services.module.css";
 
 const Services = ({ services }) => {
   return (
-    <section id="services" style={styles.section}>
-      <div style={styles.container}>
-        <h2 style={styles.sectionTitle}>Services</h2>
-        <div style={styles.servicesGrid}>
+    <section id="services" className={styles.servicesSection}>
+      <div className={styles.servicesContainer}>
+        <h2 className={styles.sectionTitle}>Services</h2>
+        <div className={styles.servicesGrid}>
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} style={styles.serviceCard}>
-                <div style={styles.serviceIcon}>
+              <div key={index} className={styles.serviceCard}>
+                <div className={styles.serviceIcon}>
                   <Icon />
                 </div>
-                <h4 style={styles.serviceTitle}>{service.title}</h4>
-                <p style={styles.serviceDesc}>{service.description}</p>
+                <h4 className={styles.serviceTitle}>{service.title}</h4>
+                <p className={styles.serviceDesc}>{service.description}</p>
               </div>
             );
           })}

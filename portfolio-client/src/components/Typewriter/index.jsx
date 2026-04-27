@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import styles from "./Typewriter.module.css";
 
 const Typewriter = ({ roles, typingSpeed = 100, backspaceSpeed = 50, pauseDuration = 1500 }) => {
   const [displayText, setDisplayText] = useState("");
@@ -48,40 +49,13 @@ const Typewriter = ({ roles, typingSpeed = 100, backspaceSpeed = 50, pauseDurati
   }, [type, isPaused, isDeleting, typingSpeed, backspaceSpeed, pauseDuration]);
 
   return (
-    <span style={{ display: "inline-flex", alignItems: "center" }}>
-      <span
-        style={{
-          background: "linear-gradient(90deg, #149ddd 0%, #00d4ff 50%, #149ddd 100%)",
-          backgroundSize: "200% auto",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          borderBottom: "3px solid transparent",
-          borderImage: "linear-gradient(90deg, #149ddd, #00d4ff) 1",
-          paddingBottom: "2px",
-          fontWeight: 600,
-        }}
-      >
+    <span className={styles.typewriter}>
+      <span className={styles.typewriterText}>
         {displayText}
       </span>
-      <span
-        style={{
-          color: "#00d4ff",
-          marginLeft: "2px",
-          fontWeight: "bold",
-          animation: "blink 1s infinite",
-        }}
-      >
+      <span className={styles.cursor}>
         |
       </span>
-      <style>
-        {`
-          @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-          }
-        `}
-      </style>
     </span>
   );
 };

@@ -1,0 +1,32 @@
+.typewriter {
+  display: inline-flex;
+  align-items: center;
+}
+
+.typewriterText {
+  background: linear-gradient(90deg, #149ddd 0%, #00d4ff 50%, #149ddd 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #149ddd, #00d4ff) 1;
+  padding-bottom: 2px;
+  font-weight: 600;
+}
+
+.cursor {
+  color: #00d4ff;
+  margin-left: 2px;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
