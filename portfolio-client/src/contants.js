@@ -1,5 +1,5 @@
 // import PorftolioVideo from "../public/assets/video/portflio_project.mp4";
-
+import image from '/assets/img/eccomerce-web-app.png'; // 👈 YOUR IMAGE PATH
 import {
   FiAward,
   FiBook,
@@ -252,80 +252,143 @@ export const stats = [
   },
 ];
 
+// export const portfolioItems = [
+//   {
+//     id: 1,
+//     title: 'Portfolio Application',
+//     category: 'web',
+//     description:
+//       'A responsive personal portfolio showcasing skills, projects, and professional experience with modern UI/UX.',
+//     techStack: ['React', 'Vite', 'CSS'],
+//     highlights: ['Responsive Design', 'Modern UI', 'Smooth Animations'],
+//     productionLink: 'https://portfolio-fullstack-mern-and-reactj.vercel.app/',
+//     githubLink: 'https://github.com/Vaishnavi-Karil/Porftolio-Project',
+//     // videoLink: '/assets/video/portflio_project.mp4',
+//   },
+//   {
+//     id: 2,
+//     title: 'Blog Application',
+//     category: 'fullstack',
+//     description:
+//       'Full-featured blog platform with user authentication, CRUD operations, and admin dashboard.',
+//     techStack: ['Next.js', 'MySQL', 'Authentication'],
+//     highlights: ['User Authentication', 'Admin Dashboard', 'CRUD Operations'],
+//     productionLink: 'https://kanban-web-app.vercel.app',
+//     githubLink: 'https://kanban-web-app.vercel.app',
+//     // videoLink: '/assets/video/portflio_project.mp4',
+//   },
+//   {
+//     id: 3,
+//     title: 'Fake Store Application',
+//     category: 'web',
+//     description:
+//       'E-commerce frontend with product listings, cart functionality, and seamless user experience.',
+//     techStack: ['React', 'Axios', 'API Integration'],
+//     highlights: ['Cart Functionality', 'API Integration', 'Responsive UI'],
+//     productionLink: 'https://kanban-web-app.vercel.app',
+//     githubLink: 'https://kanban-web-app.vercel.app',
+//     // videoLink: '/assets/video/portflio_project.mp4',
+//   },
+//   {
+//     id: 4,
+//     title: 'Kanban Web Application',
+//     category: 'web',
+//     description:
+//       'Task management tool with drag-and-drop functionality for organizing projects and workflows.',
+//     techStack: ['React', 'JSON Server', 'Drag & Drop'],
+//     highlights: ['Drag & Drop', 'Task Management', 'Real-time Updates'],
+//     productionLink: 'https://kanban-web-app.vercel.app',
+//     githubLink: 'https://kanban-web-app.vercel.app',
+//     // videoLink: '/assets/video/portflio_project.mp4',
+//   },
+//   {
+//     id: 5,
+//     title: 'Shopping Application',
+//     category: 'web',
+//     description:
+//       'E-commerce shopping platform with product catalog, search, and checkout functionality.',
+//     techStack: ['React', 'Figma', 'State Management'],
+//     highlights: ['Product Catalog', 'Search Functionality', 'Checkout Flow'],
+//     productionLink: 'https://kanban-web-app.vercel.app',
+//     githubLink: 'https://kanban-web-app.vercel.app',
+//     // videoLink: '/assets/video/portflio_project.mp4',
+//   },
+//   {
+//     id: 6,
+//     title: 'Shopping REST API',
+//     category: 'backend',
+//     description:
+//       'Backend API for e-commerce with product management, user auth, and order processing.',
+//     techStack: ['Node.js', 'Express', 'MongoDB'],
+//     highlights: ['RESTful API', 'User Authentication', 'Order Management'],
+//     productionLink: 'https://kanban-web-app.vercel.app',
+//     githubLink: 'https://kanban-web-app.vercel.app',
+//     // videoLink: '/assets/video/portflio_project.mp4',
+//   },
+// ];
 export const portfolioItems = [
   {
     id: 1,
-    title: 'Portfolio Application',
-    category: 'web',
-    description:
-      'A responsive personal portfolio showcasing skills, projects, and professional experience with modern UI/UX.',
-    techStack: ['React', 'Vite', 'CSS'],
-    highlights: ['Responsive Design', 'Modern UI', 'Smooth Animations'],
-    productionLink: 'https://portfolio-fullstack-mern-and-reactj.vercel.app/',
-    githubLink: 'https://github.com/Vaishnavi-Karil/Porftolio-Project',
-    // videoLink: '/assets/video/portflio_project.mp4',
-  },
-  {
-    id: 2,
-    title: 'Blog Application',
+    title: 'E-Commerce Web Application',
     category: 'fullstack',
     description:
-      'Full-featured blog platform with user authentication, CRUD operations, and admin dashboard.',
-    techStack: ['Next.js', 'MySQL', 'Authentication'],
-    highlights: ['User Authentication', 'Admin Dashboard', 'CRUD Operations'],
-    productionLink: 'https://kanban-web-app.vercel.app',
-    githubLink: 'https://kanban-web-app.vercel.app',
-    // videoLink: '/assets/video/portflio_project.mp4',
-  },
-  {
-    id: 3,
-    title: 'Fake Store Application',
-    category: 'web',
-    description:
-      'E-commerce frontend with product listings, cart functionality, and seamless user experience.',
-    techStack: ['React', 'Axios', 'API Integration'],
-    highlights: ['Cart Functionality', 'API Integration', 'Responsive UI'],
-    productionLink: 'https://kanban-web-app.vercel.app',
-    githubLink: 'https://kanban-web-app.vercel.app',
-    // videoLink: '/assets/video/portflio_project.mp4',
-  },
-  {
-    id: 4,
-    title: 'Kanban Web Application',
-    category: 'web',
-    description:
-      'Task management tool with drag-and-drop functionality for organizing projects and workflows.',
-    techStack: ['React', 'JSON Server', 'Drag & Drop'],
-    highlights: ['Drag & Drop', 'Task Management', 'Real-time Updates'],
-    productionLink: 'https://kanban-web-app.vercel.app',
-    githubLink: 'https://kanban-web-app.vercel.app',
-    // videoLink: '/assets/video/portflio_project.mp4',
-  },
-  {
-    id: 5,
-    title: 'Shopping Application',
-    category: 'web',
-    description:
-      'E-commerce shopping platform with product catalog, search, and checkout functionality.',
-    techStack: ['React', 'Figma', 'State Management'],
-    highlights: ['Product Catalog', 'Search Functionality', 'Checkout Flow'],
-    productionLink: 'https://kanban-web-app.vercel.app',
-    githubLink: 'https://kanban-web-app.vercel.app',
-    // videoLink: '/assets/video/portflio_project.mp4',
-  },
-  {
-    id: 6,
-    title: 'Shopping REST API',
-    category: 'backend',
-    description:
-      'Backend API for e-commerce with product management, user auth, and order processing.',
-    techStack: ['Node.js', 'Express', 'MongoDB'],
-    highlights: ['RESTful API', 'User Authentication', 'Order Management'],
-    productionLink: 'https://kanban-web-app.vercel.app',
-    githubLink: 'https://kanban-web-app.vercel.app',
-    // videoLink: '/assets/video/portflio_project.mp4',
+      'A full-featured e-commerce platform with product listing, cart functionality, user authentication, and secure checkout. Built with modern UI and optimized performance.',
+    techStack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'PgAdmin'],
+    productionLink: 'https://your-live-project.vercel.app',
+    githubLink: 'https://github.com/Vaishnavi-Karil/ecommerce-project',
+    // image: '/assets/img/ecommerce-web-app.png',
+    image : image // 👈 YOUR IMAGE PATH
   },
 ];
+
+
+export const projectDetails = {
+  'ecommerce-web-app': {
+    title: 'E-Commerce Web Application',
+
+    description:
+      'A full-featured e-commerce platform with product listing, cart functionality, user authentication, and secure checkout.',
+
+    fullDescription:
+      'ShopEase is a modern e-commerce web application designed to provide users with a seamless shopping experience. Users can browse products, add items to cart, manage orders, and complete secure payments. The platform also includes an admin dashboard for managing products, users, and orders.',
+
+    techStack: [
+      'React',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Tailwind CSS',
+      'JWT',
+    ],
+
+    features: [
+      'User Authentication (JWT)',
+      'Product Listing & Categories',
+      'Shopping Cart Management',
+      'Secure Checkout Process',
+      'Order Management System',
+      'Admin Dashboard',
+      'Responsive Design',
+      'Search & Filter Products',
+    ],
+
+    duration: 'Jan 2024 – Mar 2024',
+    role: 'Full Stack Developer',
+    status: 'Completed',
+
+    productionLink: 'https://your-live-project.vercel.app',
+    githubLink: 'https://github.com/Vaishnavi-Karil/ecommerce-project',
+
+    image: '/assets/img/ecommerce-web-app.png',
+
+    gallery: [
+      '/assets/img/ecommerce-web-app.png',
+      '/assets/img/ecommerce-web-app.png',
+      '/assets/img/ecommerce-web-app.png',
+    ],
+  },
+};
+
 export const contact = {
   name: 'Vaishnavi Karil',
   location: 'Pune, Maharastra , India',
