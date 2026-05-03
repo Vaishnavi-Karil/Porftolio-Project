@@ -1,0 +1,267 @@
+.detailsSection {
+  padding: 0;
+  min-height: 100vh;
+  background: #040b14;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Full Width Header Image */
+.headerImage {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.headerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.headerImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, #040b14, transparent);
+}
+
+/* Title Section */
+.titleSection {
+  padding: 0 60px;
+  margin-top: -100px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.titleLeft {
+  flex: 1;
+}
+
+.title {
+  font-size: 42px;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 12px;
+  background: rgba(20,157,221,0.15);
+  color: #149ddd;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Tech Stack - Row */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.techBadge {
+  background: rgba(20,157,221,0.15);
+  color: #149ddd;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Buttons - Right Side */
+.titleRight {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #149ddd, #0c7ab5);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background: linear-gradient(135deg, #0c7ab5, #149ddd);
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  border: 1px solid #149ddd;
+  color: #149ddd;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(20,157,221,0.15);
+}
+
+/* Content Section */
+.contentSection {
+  padding: 40px 60px 60px;
+}
+
+/* Section with accent heading */
+.sectionCard {
+  margin-bottom: 40px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.accentBar {
+  width: 4px;
+  height: 28px;
+  background: #149ddd;
+  border-radius: 2px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  color: #fff;
+  margin: 0;
+}
+
+.description {
+  color: #a8a9b4;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* Features List */
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featuresList li {
+  color: #a8a9b4;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(20,157,221,0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.featuresList li::before {
+  content: "▹";
+  color: #149ddd;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Technical Details Grid */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.techItem {
+  background: rgba(20,157,221,0.08);
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(20,157,221,0.15);
+}
+
+.techItemLabel {
+  color: #149ddd;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.techItemValue {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  padding: 30px 60px;
+  border-top: 1px solid rgba(20,157,221,0.15);
+  text-align: center;
+}
+
+.footerText {
+  color: #a8a9b4;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .titleSection {
+    flex-direction: column;
+    padding: 0 30px;
+  }
+
+  .titleRight {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .contentSection {
+    padding: 30px;
+  }
+
+  .techGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .headerImage {
+    height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .titleRight {
+    flex-direction: column;
+  }
+
+  .titleRight a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

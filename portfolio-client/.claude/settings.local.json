@@ -8,7 +8,9 @@
       "Bash(node -e \"const p = require\\('./node_modules/framer-motion/package.json'\\); console.log\\(p.version\\)\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
-      "Bash(curl -s http://localhost:5173/src/App.jsx)"
+      "Bash(curl -s http://localhost:5173/src/App.jsx)",
+      "PowerShell(cd D:\\\\portfolio-pro\\\\portfolio-client; Start-Process powershell -ArgumentList \"-Command\", \"npm run dev\" -NoNewWindow -Wait -PassThru)",
+      "Bash(curl *)"
     ]
   }
 }

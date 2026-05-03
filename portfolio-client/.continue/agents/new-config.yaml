@@ -1,23 +1,26 @@
-# This is an example configuration file
-# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference
-
-name: Example Config
+name: Vaishnavi Dev Config
 version: 1.0.0
 schema: v1
 
-# Define which models can be used
-# https://docs.continue.dev/customization/models
 models:
-  - name: my gpt-5
+  # 🔹 OpenAI (optional)
+
+  # 🔹 Claude (paid - best for reasoning/debugging)
+  - name: Claude Sonnet
+    provider: anthropic
+    model: claude-3-5-sonnet
+    apiKey: YOUR_ANTHROPIC_API_KEY
+
+  - name: GPT-5
     provider: openai
     model: gpt-5
     apiKey: YOUR_OPENAI_API_KEY_HERE
-  - uses: ollama/qwen2.5-coder-7b
-  - uses: anthropic/claude-4-sonnet
-    with:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
-# MCP Servers that Continue can access
-# https://docs.continue.dev/customization/mcp-tools
+  # 🔹 Local FREE model (recommended for daily coding)
+  - name: Qwen Coder (Local)
+    provider: ollama
+    model: qwen2.5-coder-7b
+
+
 mcpServers:
   - uses: anthropic/memory-mcp

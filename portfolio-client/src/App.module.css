@@ -166,6 +166,15 @@
   box-sizing: border-box;
 }
 
+/* Main Content - Full width for project page */
+.mainContentFull {
+  margin-left: 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+}
+
 /* Scroll to Top */
 .scrollTop {
   position: fixed;

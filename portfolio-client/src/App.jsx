@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Footer from './pages/Footer';
 import Contact from './pages/Contacts';
 import Services from './pages/Services';
@@ -17,41 +18,41 @@ import {
 } from './contants';
 import Education from './pages/Education';
 import Certification from './pages/Certification';
+import ProjectDetails from './pages/ProjectDetails';
 import { FiGithub, FiLinkedin, FiPhone } from 'react-icons/fi';
 
-function App() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+// Page wrapper components with IDs for navigation
+const HeroPage = () => <section id="hero"><Hero /></section>;
+const AboutPage = () => <section id="about"><About /></section>;
+const ResumePage = () => <section id="resume"><Resume /></section>;
+const SkillsPage = () => <section id="skills"><Skills skills={skills} /></section>;
+const PortfolioPage = () => {
   const [portfolioFilter, setPortfolioFilter] = useState('all');
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [activeNav, setActiveNav] = useState('hero');
-  const [hoveredNav, setHoveredNav] = useState(null);
+  const filteredPortfolio =
+    portfolioFilter === 'all'
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === portfolioFilter);
+
+  return (
+    <section id="portfolio">
+      <Portfolio
+        portfolioFilter={portfolioFilter}
+        filteredPortfolio={filteredPortfolio}
+        setPortfolioFilter={setPortfolioFilter}
+      />
+    </section>
+  );
+};
+const CertificationsPage = () => <section id="certifications"><Certification /></section>;
+const EducationPage = () => <section id="education"><Education /></section>;
+const ServicesPage = () => <section id="services"><Services services={services} /></section>;
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileOpen(false);
-      setActiveNav(id);
-    }
-  };
 
   const handleInputChange = (e) => {
     setFormData({
@@ -88,10 +89,71 @@ function App() {
     }
   };
 
-  const filteredPortfolio =
-    portfolioFilter === 'all'
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === portfolioFilter);
+  return (
+    <section id="contact">
+      <Contact
+        formData={formData}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+      />
+    </section>
+  );
+};
+
+function App() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredNav, setHoveredNav] = useState(null);
+  const [activeNav, setActiveNav] = useState('hero');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const sectionRefs = useRef({});
+
+  const isProjectPage = location.pathname.startsWith('/project/');
+
+  // Intersection Observer to detect visible section on scroll
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all section elements
+    navbar.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        sectionRefs.current[item.id] = element;
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Scroll to section on nav click
+  const handleNavClick = (sectionId) => {
+    if (isProjectPage) {
+      // On project page, scroll to section or navigate to home first
+      window.location.href = `/#${sectionId}`;
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActiveNav(sectionId);
+      }
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <div className={appStyles.app}>
@@ -141,7 +203,7 @@ function App() {
                 <button
                   key={item.id}
                   className={isActive ? appStyles.navButtonActive : appStyles.navButton}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   onMouseEnter={() => setHoveredNav(item.id)}
                   onMouseLeave={() => setHoveredNav(null)}
                 >
@@ -163,44 +225,27 @@ function App() {
         {mobileOpen ? '✕' : '☰'}
       </button>
 
-      {/* Main Content */}
+      {/* Main Content - Single Page with all sections */}
       <main className={appStyles.mainContent}>
-        {/* Hero Section */}
-        <Hero />
-        {/* About Section */}
-        <About />
-        {/* Career Journey: summary + stats + experience timeline */}
-        <Resume />
-
-        {/* Skills Section */}
-        <Skills skills={skills} />
-
-        {/* Portfolio Section */}
-        <Portfolio
-          portfolioFilter={portfolioFilter}
-          filteredPortfolio={filteredPortfolio}
-          setPortfolioFilter={setPortfolioFilter}
-        />
-        <Certification />
-        <Education />
-        {/* Services Section */}
-        <Services services={services} />
-        {/* Contact Section */}
-        <Contact
-          formData={formData}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-        />
-        {/* Footer */}
-        <Footer />
+        {isProjectPage ? (
+          <Routes>
+            <Route path="/project/:slug" element={<ProjectDetails />} />
+          </Routes>
+        ) : (
+          <>
+            <HeroPage />
+            <AboutPage />
+            <ResumePage />
+            <SkillsPage />
+            <PortfolioPage />
+            <CertificationsPage />
+            <EducationPage />
+            <ServicesPage />
+            <ContactPage />
+            <Footer />
+          </>
+        )}
       </main>
-
-      {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <button className={appStyles.scrollTop} onClick={scrollToTop}>
-          ↑
-        </button>
-      )}
     </div>
   );
 }

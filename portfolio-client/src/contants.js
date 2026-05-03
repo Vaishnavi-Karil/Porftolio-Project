@@ -1,5 +1,4 @@
 // import PorftolioVideo from "../public/assets/video/portflio_project.mp4";
-import image from '/assets/img/eccomerce-web-app.png'; // 👈 YOUR IMAGE PATH
 import {
   FiAward,
   FiBook,
@@ -330,27 +329,47 @@ export const portfolioItems = [
   {
     id: 1,
     title: 'E-Commerce Web Application',
+    slug: 'ecommerce-web-app',
     category: 'fullstack',
     description:
       'A full-featured e-commerce platform with product listing, cart functionality, user authentication, and secure checkout. Built with modern UI and optimized performance.',
+    fullDescription:
+      'ShopEase is a complete e-commerce platform designed to deliver a seamless shopping experience. Users can browse products, filter items, add to cart, and securely checkout. The platform includes authentication, order tracking, and a fully functional admin dashboard to manage products, categories, and orders.',
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'PgAdmin'],
+    features: [
+      'User Authentication (JWT)',
+      'Product Browsing & Filtering',
+      'Add to Cart & Wishlist',
+      'Secure Checkout Flow',
+      'Order Management System',
+      'Admin Dashboard',
+      'Responsive UI Design',
+    ],
+    duration: 'Jan 2024 – Apr 2024',
+    role: 'Full Stack Developer',
+    status: 'Completed',
     productionLink: 'https://your-live-project.vercel.app',
     githubLink: 'https://github.com/Vaishnavi-Karil/ecommerce-project',
-    // image: '/assets/img/ecommerce-web-app.png',
-    image : image // 👈 YOUR IMAGE PATH
+    image: '/assets/img/eccomerce-web-app.png',
   },
 ];
+export const projectDetails = [
+  {
+    id: 1,
 
-
-export const projectDetails = {
-  'ecommerce-web-app': {
     title: 'E-Commerce Web Application',
+
+    category: 'Fullstack Web Application',
 
     description:
       'A full-featured e-commerce platform with product listing, cart functionality, user authentication, and secure checkout.',
 
     fullDescription:
-      'ShopEase is a modern e-commerce web application designed to provide users with a seamless shopping experience. Users can browse products, add items to cart, manage orders, and complete secure payments. The platform also includes an admin dashboard for managing products, users, and orders.',
+      'ShopEase is a complete e-commerce platform designed to deliver a seamless shopping experience. Users can browse products, filter items, add to cart, and securely checkout. The platform includes authentication, order tracking, and a fully functional admin dashboard to manage products, categories, and orders.',
+
+    duration: 'Jan 2024 – Apr 2024',
+    role: 'Full Stack Developer',
+    status: 'Completed',
 
     techStack: [
       'React',
@@ -363,31 +382,68 @@ export const projectDetails = {
 
     features: [
       'User Authentication (JWT)',
-      'Product Listing & Categories',
-      'Shopping Cart Management',
-      'Secure Checkout Process',
+      'Product Browsing & Filtering',
+      'Add to Cart & Wishlist',
+      'Secure Checkout Flow',
       'Order Management System',
       'Admin Dashboard',
-      'Responsive Design',
-      'Search & Filter Products',
+      'Responsive UI Design',
     ],
 
-    duration: 'Jan 2024 – Mar 2024',
-    role: 'Full Stack Developer',
-    status: 'Completed',
-
-    productionLink: 'https://your-live-project.vercel.app',
-    githubLink: 'https://github.com/Vaishnavi-Karil/ecommerce-project',
+    liveUrl: 'https://your-live-project.vercel.app',
+    githubUrl: 'https://github.com/Vaishnavi-Karil/ecommerce-project',
 
     image: '/assets/img/ecommerce-web-app.png',
-
-    gallery: [
-      '/assets/img/ecommerce-web-app.png',
-      '/assets/img/ecommerce-web-app.png',
-      '/assets/img/ecommerce-web-app.png',
-    ],
   },
-};
+];
+
+// export const projectDetails = {
+//   'ecommerce-web-app': {
+//     title: 'E-Commerce Web Application',
+
+//     description:
+//       'A full-featured e-commerce platform with product listing, cart functionality, user authentication, and secure checkout.',
+
+//     fullDescription:
+//       'ShopEase is a modern e-commerce web application designed to provide users with a seamless shopping experience. Users can browse products, add items to cart, manage orders, and complete secure payments. The platform also includes an admin dashboard for managing products, users, and orders.',
+
+//     techStack: [
+//       'React',
+//       'Node.js',
+//       'Express.js',
+//       'MongoDB',
+//       'Tailwind CSS',
+//       'JWT',
+//     ],
+
+//     features: [
+//       'User Authentication (JWT)',
+//       'Product Listing & Categories',
+//       'Shopping Cart Management',
+//       'Secure Checkout Process',
+//       'Order Management System',
+//       'Admin Dashboard',
+//       'Responsive Design',
+//       'Search & Filter Products',
+//     ],
+
+//     duration: 'Jan 2024 – Mar 2024',
+//     role: 'Full Stack Developer',
+//     status: 'Completed',
+
+//     productionLink: 'https://your-live-project.vercel.app',
+//     githubLink: 'https://github.com/Vaishnavi-Karil/ecommerce-project',
+
+//     image: '/assets/img/eccomerce-web-app.png',
+//     headerImage: '/assets/img/eccomerce-web-app.png',
+
+//     gallery: [
+//       '/assets/img/eccomerce-web-app.png',
+//       '/assets/img/eccomerce-web-app.png',
+//       '/assets/img/eccomerce-web-app.png',
+//     ],
+//   },
+// };
 
 export const contact = {
   name: 'Vaishnavi Karil',
@@ -397,14 +453,15 @@ export const contact = {
   address: 'Pune, Maharastra , India',
 };
 export const navbar = [
-  { text: 'Home', icon: FiHome, id: 'hero' },
-  { text: 'About', icon: FiUser, id: 'about' },
-  { text: 'Resume', icon: FiFileText, id: 'resume' },
-  { text: 'Portfolio', icon: FiBriefcase, id: 'portfolio' },
-  { text: 'Certifications', icon: FiAward, id: 'certifications' },
-  { text: 'Education', icon: FiBook, id: 'education' },
-  { text: 'Services', icon: FiSettings, id: 'services' },
-  { text: 'Contact', icon: FiMail, id: 'contact' },
+  { text: 'Home', icon: FiHome, id: 'hero', path: '/' },
+  { text: 'About', icon: FiUser, id: 'about', path: '/about' },
+  { text: 'Resume', icon: FiFileText, id: 'resume', path: '/resume' },
+  { text: 'Skills', icon: FiCode, id: 'skills', path: '/skills' },
+  { text: 'Portfolio', icon: FiBriefcase, id: 'portfolio', path: '/portfolio' },
+  { text: 'Certifications', icon: FiAward, id: 'certifications', path: '/certifications' },
+  { text: 'Education', icon: FiBook, id: 'education', path: '/education' },
+  { text: 'Services', icon: FiSettings, id: 'services', path: '/services' },
+  { text: 'Contact', icon: FiMail, id: 'contact', path: '/contact' },
 ];
 
 // ── Resume Section ─────────────────────────────────────────
