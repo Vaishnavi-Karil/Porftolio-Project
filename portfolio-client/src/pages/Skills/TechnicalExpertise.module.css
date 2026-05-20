@@ -1,0 +1,447 @@
+/* TechnicalExpertise.module.css */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 48px;
+
+    background: #07111f;
+
+    color: white;
+}
+
+/* Header */
+
+.header {
+    margin-bottom: 38px;
+}
+
+.heading {
+    margin: 0;
+
+    font-size: 48px;
+    font-weight: 800;
+
+    color: #dae2fd;
+}
+
+.heading span {
+    color: #00d1ff;
+}
+
+.subText {
+    max-width: 680px;
+
+    margin-top: 16px;
+
+    color: #bbc9cf;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Cards */
+
+.cardGrid {
+    display: grid;
+
+    grid-template-columns: repeat(3,
+            1fr);
+
+    gap: 24px;
+}
+
+/* Card */
+
+.card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: rgba(30, 41, 59, 0.4);
+
+    border: 1px solid rgba(133, 147, 153, 0.18);
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0,
+            209,
+            255,
+            0.45);
+
+    box-shadow:
+        0 0 30px rgba(0, 209, 255, 0.08),
+        0 0 60px rgba(0, 209, 255, 0.03);
+}
+
+.gradientGlow {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.15;
+
+    background: linear-gradient(59deg,
+            #00d1ff 0%,
+            rgba(0, 209, 255, 0) 50%,
+            #68f5b8 100%);
+
+    pointer-events: none;
+}
+
+/* Icon */
+
+.iconBox {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    margin-bottom: 22px;
+}
+
+.cyanIcon {
+    background: rgba(0, 209, 255, 0.1);
+
+    color: #00d1ff;
+}
+
+.greenIcon {
+    background: rgba(104, 245, 184, 0.1);
+
+    color: #68f5b8;
+}
+
+.blueIcon {
+    background: rgba(173, 198, 255, 0.1);
+
+    color: #adc6ff;
+}
+
+/* Typography */
+
+.cardTitle {
+    margin: 0 0 18px;
+
+    color: #dae2fd;
+
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.cardDescription {
+    color: #bbc9cf;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Tags */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 26px;
+}
+
+.tag {
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    background: #222a3d;
+
+    border: 1px solid #3c494e;
+
+    font-size: 11px;
+
+    color: #a4e6ff;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+}
+
+/* Pipeline */
+
+.pipelineContainer {
+    margin-top: 24px;
+
+    padding: 22px 24px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: rgba(30, 41, 59, 0.4);
+
+    border: 1px solid rgba(133, 147, 153, 0.16);
+
+    backdrop-filter: blur(6px);
+}
+
+/* Header */
+
+.pipelineHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.pipelineHeader h3 {
+    margin: 0;
+
+    color: #dae2fd;
+
+    font-size: 22px;
+}
+
+/* Workflow */
+
+.workflow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #bbc9cf;
+
+    font-size: 11px;
+
+    letter-spacing: 0.18em;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+}
+
+/* Pipeline Wrapper */
+
+.pipelineWrapper {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 10px;
+}
+
+/* Base Line */
+
+/* .pipelineLine {
+  position: absolute;
+
+  top: 20px;
+  left: 60px;
+  right: 60px;
+
+  height: 2px;
+
+  background: rgba(
+    164,
+    230,
+    255,
+    0.08
+  );
+
+  z-index: 1;
+} */
+.pipelineLine {
+    position: absolute;
+    top: 20px;
+    left: calc(12.5%);
+    right: calc(12.5%);
+    height: 2px;
+    background: rgba(164,
+            230,
+            255,
+            0.08);
+    z-index: 1;
+}
+
+/* Active Progress Line */
+
+.activeLine {
+    height: 100%;
+
+    background: linear-gradient(90deg,
+            #00d1ff,
+            #ffffff);
+
+    box-shadow:
+        0 0 12px rgba(0, 209, 255, 0.7),
+        0 0 30px rgba(0, 209, 255, 0.35);
+
+    border-radius: 999px;
+}
+
+/* Steps */
+
+.pipelineStep {
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+/* Node */
+
+.node {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 999px;
+
+    background: #2d3449;
+
+    border: 3px solid #0b1326;
+
+    color: #8e9ab3;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Active */
+
+.activeNode {
+    background: #00d1ff;
+
+    color: white;
+
+    box-shadow:
+        0 0 15px rgba(0, 209, 255, 0.8),
+        0 0 35px rgba(0, 209, 255, 0.4);
+}
+
+/* Progress Ring */
+
+.progressRing {
+    position: absolute;
+
+    inset: -8px;
+
+    border-radius: 999px;
+
+    border: 2px solid rgba(0, 209, 255, 0.45);
+
+    animation: pulseRing 1.5s ease;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+}
+
+/* Step Text */
+
+.pipelineStep h4 {
+    margin: 0 0 6px;
+
+    color: #dae2fd;
+
+    font-size: 11px;
+
+    letter-spacing: 0.1em;
+}
+
+.pipelineStep p {
+    max-width: 120px;
+
+    margin: 0;
+
+    color: #bbc9cf;
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .container {
+        padding: 32px 20px;
+    }
+
+    .cardGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .pipelineWrapper {
+        flex-direction: column;
+
+        gap: 28px;
+    }
+
+    .pipelineLine {
+        display: none;
+    }
+
+    .pipelineStep {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+    .pipelineStep p {
+        max-width: 100%;
+    }
+}

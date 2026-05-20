@@ -455,8 +455,8 @@ export const contact = {
 export const navbar = [
   { text: 'Home', icon: FiHome, id: 'hero', path: '/' },
   { text: 'About', icon: FiUser, id: 'about', path: '/about' },
-  { text: 'Resume', icon: FiFileText, id: 'resume', path: '/resume' },
-  { text: 'Skills', icon: FiCode, id: 'skills', path: '/skills' },
+  { text: 'Experience', icon: FiFileText, id: 'resume', path: '/resume' },
+  { text: 'Technical Expertise', icon: FiCode, id: 'skills', path: '/skills' },
   { text: 'Portfolio', icon: FiBriefcase, id: 'portfolio', path: '/portfolio' },
   { text: 'Certifications', icon: FiAward, id: 'certifications', path: '/certifications' },
   { text: 'Education', icon: FiBook, id: 'education', path: '/education' },

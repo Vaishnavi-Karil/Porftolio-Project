@@ -1,0 +1,196 @@
+/* ExperienceHeroCard.module.css */
+
+.wrapper {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto 48px;
+}
+
+/* Heading */
+
+.headingContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.subTitle {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    /* font-size: 14px; */
+    font-size: 42px;
+    /* font-weight: 600; */
+    letter-spacing: 0.08em;
+
+    /* text-transform: uppercase; */
+
+    /* margin: 0;
+    font-size: 42px; */
+    font-weight: 800;
+    line-height: 1;
+    color: #dae2fd;
+}
+
+.heading {
+    margin: 0;
+
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+
+    color: #00d1ff;
+}
+
+/* Card */
+
+.card {
+    position: relative;
+
+    width: 100%;
+
+    padding: 32px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(90deg,
+            rgba(0, 209, 255, 0.05) 0%,
+            rgba(0, 209, 255, 0) 100%),
+        rgba(23, 31, 51, 0.4);
+
+    border-top: 1px solid rgba(0, 209, 255, 0.25);
+    border-right: 1px solid rgba(0, 209, 255, 0.25);
+    border-bottom: 1px solid rgba(0, 209, 255, 0.25);
+    border-left: 4px solid #00d1ff;
+
+    backdrop-filter: blur(6px);
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(circle at left,
+            rgba(0, 209, 255, 0.08),
+            transparent 60%);
+
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Typography */
+
+.title {
+    margin: 0 0 18px;
+
+    color: #dae2fd;
+    font-size: 26px;
+    /* font-size: 32px; */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.description {
+    max-width: 760px;
+
+    margin: 0;
+
+    color: #bbc9cf;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Tags */
+
+.tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    margin-top: 28px;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    backdrop-filter: blur(4px);
+}
+
+.tag span {
+    white-space: nowrap;
+}
+
+/* Blue Tag */
+
+.blueTag {
+    color: #00d1ff;
+
+    background: rgba(0, 209, 255, 0.05);
+
+    border: 1px solid rgba(0, 209, 255, 0.2);
+}
+
+/* Green Tag */
+
+.greenTag {
+    color: #22c55e;
+
+    background: rgba(34, 197, 94, 0.05);
+
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .tags {
+        gap: 10px;
+    }
+
+    .tag {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,9 +1,8 @@
-.servicesSection {
+/* .servicesSection {
   padding: 50px 20px;
 }
 
 .servicesContainer {
-  /* max-width: 1140px; */
   margin: 0 2rem;
 }
 
@@ -23,7 +22,6 @@
 }
 
 .serviceCard {
-  /* background: #1a1f2e; */
   padding: 30px;
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -54,4 +52,367 @@
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
+} */
+
+
+.servicesSection {
+  padding: 64px 48px;
+  background: #020617;
+  color: white;
+}
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 64px;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 209, 255, 0.1);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 209, 255, 0.2);
+} */
+
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: rgba(0, 209, 255, 0.1);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 209, 255, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #00d1ff;
+}
+
+.icon svg {
+  font-size: 28px;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.subHeading {
+  margin-top: 16px;
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.divider {
+  margin-top: 24px;
+  height: 1px;
+  background: linear-gradient(90deg,
+      rgba(0, 209, 255, 0.5) 0%,
+      rgba(60, 73, 78, 0.2) 50%,
+      transparent 100%);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 32px;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* .mainCard {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 34rem;
+} */
+
+.mainCard {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(135deg,
+      rgba(0, 209, 255, 0.10) 0%,
+      rgba(2, 6, 23, 0.96) 35%,
+      rgba(2, 6, 23, 1) 100%);
+
+  border: 1px solid rgba(0, 209, 255, 0.12);
+
+  border-radius: 20px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 209, 255, 0.03),
+    0 0 30px rgba(0, 209, 255, 0.04);
+
+  height: 48.5rem;
+  padding: 1.8rem;
+  /* display: flex;
+  flex-direction: column; */
+
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.cardTitle {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.cardDescription {
+  color: #cbd5e1;
+  line-height: 28px;
+}
+
+.tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.activeTag {
+  background: rgba(0, 209, 255, 0.1) !important;
+  color: #4cd6ff;
+  border: 1px solid rgba(0, 209, 255, 0.3);
+}
+
+.processCard {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.processStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.processStep span {
+  font-size: 10px;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+.dot,
+.activeDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot {
+  background: #475569;
+}
+
+.activeDot {
+  background: #00d1ff;
+  box-shadow: 0 0 10px #00d1ff;
+}
+
+.rightSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* .serviceCard {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  transition: 0.3s ease;
+} */
+
+.serviceCard {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(135deg,
+      rgba(0, 209, 255, 0.12) 0%,
+      rgba(2, 6, 23, 0.95) 35%,
+      rgba(2, 6, 23, 1) 100%);
+
+  border: 1px solid rgba(0, 209, 255, 0.12);
+
+  border-radius: 20px;
+
+  padding: 28px;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 209, 255, 0.03),
+    0 0 25px rgba(0, 209, 255, 0.03);
+}
+
+.serviceCard::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(0, 209, 255, 0.18),
+      transparent 45%);
+
+  pointer-events: none;
+}
+
+/* .serviceCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 209, 255, 0.3);
+} */
+
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 209, 255, 0.3);
+
+  box-shadow:
+    0 0 30px rgba(0, 209, 255, 0.08),
+    inset 0 0 0 1px rgba(0, 209, 255, 0.05);
+}
+
+.smallIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 209, 255, 0.1);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.serviceCard h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.serviceCard p {
+  color: #94a3b8;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+@media (max-width: 992px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .rightSection {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+}
+
+
+/* Stepper */
+
+.stepperCard {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stepperWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepperLine {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      rgba(71, 85, 105, 0) 0%,
+      #475569 50%,
+      rgba(71, 85, 105, 0) 100%);
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.stepItem span {
+  color: #94a3b8;
+  font-size: 10px;
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.step,
+.activeStep {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.step {
+  background: #475569;
+}
+
+.activeStep {
+  background: #00d1ff;
+  box-shadow: 0 0 10px #00d1ff;
 }

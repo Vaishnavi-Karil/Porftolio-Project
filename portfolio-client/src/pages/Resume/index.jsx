@@ -1,162 +1,167 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FiCalendar, FiMapPin } from 'react-icons/fi';
-import styles from './Resume.module.css';
-import { resumeExperience, resumeStats, resumeSummary } from '../../contants';
+import { motion } from "framer-motion";
 
-const Resume = () => {
-  const [hoveredCard, setHoveredCard]   = useState(null);
-  const [hoveredStat, setHoveredStat]   = useState(null);
-  const [visibleItems, setVisibleItems] = useState(new Set());
-  const itemRefs = useRef([]);
+import {
+  Terminal,
+  Stethoscope,
+  Settings,
+  Share2,
+  GraduationCap,
+} from "lucide-react";
 
-  useEffect(() => {
-    const observers = itemRefs.current.map((ref, i) => {
-      if (!ref) return null;
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting)
-            setVisibleItems(prev => new Set([...prev, i]));
-        },
-        { threshold: 0.1 }
-      );
-      obs.observe(ref);
-      return obs;
-    });
-    return () => observers.forEach(obs => obs?.disconnect());
-  }, []);
+import styles from "./Timeline.module.css";
+import ExperienceHeroCard from "../../components/Card";
+import Divider from "../../components/Divider";
 
+const experiences = [
+  {
+    company: "NeoSOFT",
+    role: "Senior Software Developer",
+    period: "2025 - PRESENT",
+    description:
+      "Architecting scalable Next.js applications, enterprise ERP systems, and optimizing MySQL database performance for high-traffic production environments.",
+    icon: Terminal,
+    side: "left",
+  },
+  {
+    company: "Axonic Health",
+    role: "Software Developer",
+    period: "2022 - 2024",
+    description:
+      "Developed healthcare dashboards, hospital management systems, and real-time patient data workflows using MERN stack technologies.",
+    icon: Stethoscope,
+    side: "right",
+  },
+  {
+    company: "Phixman Tech",
+    role: "Software Developer",
+    period: "2021 - 2022",
+    description:
+      "Built workflow automation systems and optimized repair service management applications with advanced scheduling logic.",
+    icon: Settings,
+    side: "left",
+  },
+  {
+    company: "Infobyd Solution",
+    role: "Software Developer",
+    period: "2020 - 2021",
+    description:
+      "Created real-time bidding and auction systems using WebSocket architecture and dynamic frontend synchronization.",
+    icon: Share2,
+    side: "right",
+  },
+  {
+    company: "Asprarrow Tech",
+    role: "Trainee Developer",
+    period: "2019 - 2020",
+    description:
+      "Learned modern web development, REST APIs, modular architecture, and agile software development methodologies.",
+    icon: GraduationCap,
+    side: "left",
+  },
+];
+
+export default function TimelinePage() {
   return (
-    <section id="resume" className={styles.resumeSection}>
-      <div className={styles.resumeContainer}>
+    <section className={styles.container}>
+      {/* Background Glow */}
+      <div className={styles.backgroundGlow} />
 
-        {/* Section title */}
-        <h2 className={styles.sectionTitle}>Professional Experience</h2>
+      {/* Header */}
 
-        {/* Summary card + Stats grid */}
-        <div className={styles.resumeTopGrid}>
+      <ExperienceHeroCard/>
+      <Divider/>
 
-          {/* Summary */}
-          <div className={styles.resumeSummaryCard}>
-            <div className={styles.summaryAccentBar} />
-            <h3 className={styles.summaryTitle}>{resumeSummary.heading}</h3>
-            <p className={styles.summaryBody}>{resumeSummary.text}</p>
-            <div className={styles.summaryPillRow}>
-              {resumeSummary.pills.map((pill, i) => {
-                const Icon = pill.icon;
-                return (
-                  <span
-                    key={i}
-                    className={pill.type === 'available' ? styles.summaryPillGreen : styles.summaryPill}
-                  >
-                    <Icon size={11} />
-                    {pill.label}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
 
-          {/* Stats */}
-          <div className={styles.statsQuad}>
-            {resumeStats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={i}
-                  className={`${styles.statCardNew} ${hoveredStat === i ? 'stat-hovered' : ''}`}
-                  onMouseEnter={() => setHoveredStat(i)}
-                  onMouseLeave={() => setHoveredStat(null)}
-                >
-                  <div className={styles.statIconBox}>
-                    <Icon size={18} />
-                  </div>
-                  <div className={styles.statNumVal}>{stat.value}</div>
-                  <div className={styles.statNumLabel}>{stat.label}</div>
-                  <div className={styles.statNumSub}>{stat.sub}</div>
-                </div>
-              );
-            })}
-          </div>
+      {/* Timeline */}
+      <div className={styles.timelineWrapper}>
+        {/* Vertical Line */}
+        <div className={styles.verticalLine}>
+          <div className={styles.flowLine} />
         </div>
 
-        {/* Work History divider */}
-        <div className={styles.expDividerRow}>
-          <span className={styles.dividerLine} />
-          <span className={styles.dividerCaption}>Work History</span>
-          <span className={styles.dividerLine} />
-        </div>
+        {/* Cards */}
+        <div className={styles.grid}>
+          {experiences.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              className={`${styles.row} ${
+                exp.side === "left"
+                  ? styles.rowLeft
+                  : styles.rowRight
+              }`}
+              initial={{
+                opacity: 0,
+                y: 120,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: false,
+                amount: 0.3,
+              }}
+              transition={{
+                duration: 0.7,
+                ease: "easeOut",
+              }}
+            >
+              {/* Node */}
+              <motion.div
+                className={styles.nodeIndicator}
+                whileInView={{
+                  scale: [0.8, 1.4, 1],
+                  opacity: [0.3, 1, 1],
+                }}
+                transition={{
+                  duration: 0.8,
+                }}
+                viewport={{
+                  once: false,
+                  amount: 0.5,
+                }}
+              />
 
-        {/* Timeline */}
-        <div className={styles.timelineWrapper}>
-          <div className={styles.timelineRailLine} />
-
-          {resumeExperience.map((job, i) => {
-            const isVisible = visibleItems.has(i);
-            const isHovered = hoveredCard === i;
-
-            return (
-              <div
-                key={i}
-                ref={el => (itemRefs.current[i] = el)}
-                className={styles.timelineJobItem}
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateX(0)' : 'translateX(-16px)',
-                  transitionDelay: `${i * 70}ms`,
+              {/* Card */}
+              <motion.div
+                className={styles.card}
+                whileHover={{
+                  scale: 1.03,
+                  y: -8,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 16,
                 }}
               >
-                {/* Rail dot */}
-                <div className={job.current ? styles.timelineDotActive : styles.timelineDotDefault} />
+                <div className={styles.cardHeader}>
+                  <exp.icon
+                    size={18}
+                    className={styles.cardIcon}
+                  />
 
-                {/* Experience card */}
-                <div
-                  className={`${styles.expCard} ${isHovered ? 'exp-card-hovered' : ''}`}
-                  onMouseEnter={() => setHoveredCard(i)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  {/* Header row */}
-                  <div className={styles.expCardTopRow}>
-                    <div>
-                      <h3 className={styles.expCompanyName}>{job.company}</h3>
-                      <p className={styles.expRoleTitle}>{job.role}</p>
-                    </div>
-                    <div className={styles.expBadgeGroup}>
-                      <span className={job.current ? styles.expPeriodPillActive : styles.expPeriodPill}>
-                        <FiCalendar size={10} />
-                        {job.period}
-                      </span>
-                      <span className={styles.expLocationPill}>
-                        <FiMapPin size={10} />
-                        {job.location}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Bullet points */}
-                  <ul className={styles.expBulletList}>
-                    {job.highlights.map((point, j) => (
-                      <li key={j} className={styles.expBulletItem}>
-                        <span className={styles.bulletDot} />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tech tags */}
-                  <div className={styles.techTagsRow}>
-                    {job.tech.map((t, j) => (
-                      <span key={j} className={styles.techChip}>{t}</span>
-                    ))}
-                  </div>
+                  <span className={styles.period}>
+                    {exp.period}
+                  </span>
                 </div>
-              </div>
-            );
-          })}
-        </div>
 
+                <h3 className={styles.companyName}>
+                  {exp.company}
+                </h3>
+
+                <p className={styles.role}>
+                  {exp.role}
+                </p>
+
+                <p className={styles.cardDescription}>
+                  {exp.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
-};
-
-export default Resume;
+}

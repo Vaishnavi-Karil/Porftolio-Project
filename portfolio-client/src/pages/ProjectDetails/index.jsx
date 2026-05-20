@@ -1,242 +1,190 @@
-// import React from 'react';
-// import { useParams, Link } from 'react-router-dom';
-// import { projectDetails } from '../../contants';
-// import styles from './ProjectDetails.module.css';
-// import { FiExternalLink, FiGithub } from 'react-icons/fi';
 
-// const ProjectDetails = () => {
-//   const { slug } = useParams();
 
-//   const project = projectDetails[slug];
+import React from "react";
+import styles from "./PortfolioProject.module.css";
+const projectImage = "/assets/img/eccomerce-web-app.png";
+import {
+  FiArrowLeft,
+  FiExternalLink,
+  FiGithub,
+  FiClock,
+  FiUser,
+  FiGrid,
+  FiShield,
+  FiZap,
+  FiDatabase,
+  FiSmartphone,
+} from "react-icons/fi";
 
-//   if (!project) {
-//     return (
-//       <section className={styles.detailsSection}>
-//         <div className={styles.container}>
-//           <h2 style={{ color: '#fff', textAlign: 'center', padding: '100px' }}>
-//             Project Not Found
-//           </h2>
-//         </div>
-//       </section>
-//     );
-//   }
+const techStack = [
+  "React 18",
+  "Node.js",
+  "PostgreSQL",
+  "Redis",
+  "Stripe API",
+];
 
-//   return (
-//     <section className={styles.detailsSection}>
-//       <div className={styles.container}>
+const features = [
+  {
+    icon: <FiShield size={22} />,
+    title: "Secure Auth",
+    description:
+      "JWT-based multi-factor authentication with encrypted sessions.",
+  },
+  {
+    icon: <FiZap size={22} />,
+    title: "99.9% Performance",
+    description:
+      "Sub-200ms API response times via optimized query indexing.",
+  },
+  {
+    icon: <FiDatabase size={22} />,
+    title: "Scalable Schema",
+    description:
+      "Relational architecture designed for million-row datasets.",
+  },
+  {
+    icon: <FiSmartphone size={22} />,
+    title: "Fully Responsive",
+    description:
+      "Adaptive UI layouts for mobile, tablet, and ultra-wide screens.",
+  },
+];
 
-//         {/* FULL WIDTH HEADER IMAGE */}
-//         <div className={styles.headerImage}>
-//           <img src={project.headerImage} alt={project.title} />
-//           <div className={styles.headerImageOverlay} />
-//         </div>
-
-//         {/* TITLE SECTION */}
-//         <div className={styles.titleSection}>
-//           <div className={styles.titleLeft}>
-//             <h1 className={styles.title}>{project.title}</h1>
-//             <span className={styles.badge}>Fullstack Web Application</span>
-
-//             <div className={styles.techStack}>
-//               {project.techStack.map((tech, i) => (
-//                 <span key={i} className={styles.techBadge}>
-//                   {tech}
-//                 </span>
-//               ))}
-//             </div>
-//           </div>
-
-//           <div className={styles.titleRight}>
-//             <a
-//               href={project.productionLink}
-//               target="_blank"
-//               rel="noreferrer"
-//               className={styles.primaryBtn}
-//             >
-//               <FiExternalLink /> View Live Project
-//             </a>
-
-//             <a
-//               href={project.githubLink}
-//               target="_blank"
-//               rel="noreferrer"
-//               className={styles.secondaryBtn}
-//             >
-//               <FiGithub /> View Source Code
-//             </a>
-//           </div>
-//         </div>
-
-//         {/* CONTENT SECTION */}
-//         <div className={styles.contentSection}>
-
-//           {/* DESCRIPTION */}
-//           <div className={styles.sectionCard}>
-//             <div className={styles.sectionHeading}>
-//               <div className={styles.accentBar} />
-//               <h2 className={styles.sectionTitle}>Description</h2>
-//             </div>
-//             <p className={styles.description}>{project.fullDescription}</p>
-//           </div>
-
-//           {/* KEY FEATURES */}
-//           <div className={styles.sectionCard}>
-//             <div className={styles.sectionHeading}>
-//               <div className={styles.accentBar} />
-//               <h2 className={styles.sectionTitle}>Key Features</h2>
-//             </div>
-//             <ul className={styles.featuresList}>
-//               {project.features.map((feature, i) => (
-//                 <li key={i}>{feature}</li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {/* TECHNICAL DETAILS */}
-//           <div className={styles.sectionCard}>
-//             <div className={styles.sectionHeading}>
-//               <div className={styles.accentBar} />
-//               <h2 className={styles.sectionTitle}>Technical Details</h2>
-//             </div>
-//             <div className={styles.techGrid}>
-//               <div className={styles.techItem}>
-//                 <div className={styles.techItemLabel}>Duration</div>
-//                 <div className={styles.techItemValue}>{project.duration}</div>
-//               </div>
-//               <div className={styles.techItem}>
-//                 <div className={styles.techItemLabel}>Role</div>
-//                 <div className={styles.techItemValue}>{project.role}</div>
-//               </div>
-//               <div className={styles.techItem}>
-//                 <div className={styles.techItemLabel}>Status</div>
-//                 <div className={styles.techItemValue}>{project.status}</div>
-//               </div>
-//             </div>
-//           </div>
-
-//         </div>
-
-//         {/* FOOTER */}
-//         <div className={styles.footer}>
-//           <p className={styles.footerText}>
-//             © 2024 Vaishnavi Karil. All rights reserved.
-//           </p>
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ProjectDetails;
-
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import styles from './ProjectDetails.module.css';
-import { portfolioItems } from '../../contants';
-import { FiFolder, FiCalendar, FiUser, FiCheckCircle } from 'react-icons/fi';
-// import { portfolioItems } from '../../constants/constants';
-
-const ProjectDetails = () => {
-  const { slug } = useParams();
-
-  const project = portfolioItems.find((item) => item.slug === slug);
-
-  if (!project) return <div>Project not found</div>;
-
+const PortfolioProject = () => {
   return (
-    <section className={styles.detailsSection}>
+    <section className={styles.projectSection}>
       <div className={styles.container}>
+        {/* Header */}
+        <div className={styles.header}>
+          <div>
+            <button className={styles.backBtn}>
+              <FiArrowLeft size={14} />
+              Back to Gallery
+            </button>
 
-        {/* Back Button */}
-        <Link to="/#portfolio" className={styles.backBtn} onClick={() => {
-          const element = document.getElementById('portfolio');
-          if (element) element.scrollIntoView({ behavior: 'smooth' });
-        }}>
-          ← Back to Portfolio
-        </Link>
+            <h1 className={styles.title}>ShopEase E-Commerce</h1>
+          </div>
 
-        <div className={styles.topSection}>
+          <div className={styles.badges}>
+            <span>FULLSTACK_WEB_APP</span>
+            <span>2024_Q1</span>
+          </div>
+        </div>
 
-          {/* LEFT CONTENT */}
+        {/* Main Grid */}
+        <div className={styles.mainGrid}>
+          {/* Left Content */}
           <div className={styles.content}>
-            <span className={styles.badge}>Fullstack Web Application</span>
+            {/* Info Cards */}
+            <div className={styles.infoTags}>
+              <div className={styles.infoCard}>
+                <FiGrid size={16} />
+                <span>Fullstack</span>
+              </div>
 
-            <h1 className={styles.title}>{project.title}</h1>
+              <div className={styles.infoCard}>
+                <FiClock size={16} />
+                <span>4 Months</span>
+              </div>
 
-            <p className={styles.description}>{project.description}</p>
+              <div className={styles.infoCard}>
+                <FiUser size={16} />
+                <span>Lead Developer</span>
+              </div>
+            </div>
 
+            {/* About */}
+            <div className={styles.about}>
+              <p className={styles.sectionLabel}>
+                ABOUT THIS PROJECT
+              </p>
+
+              <p>
+                ShopEase is an enterprise-grade e-commerce
+                solution engineered for peak performance and
+                high user concurrency. It bridges the gap
+                between complex backend architecture and a
+                fluid, intuitive storefront.
+              </p>
+
+              <p>
+                The platform features a modular React
+                frontend integrated with a robust
+                Node/Express API, ensuring seamless state
+                management across the shopping journey —
+                from product discovery to secure payment
+                processing.
+              </p>
+
+              {/* Tech Stack */}
+              <div className={styles.techStack}>
+                {techStack.map((tech, index) => (
+                  <span key={index}>{tech}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Buttons */}
             <div className={styles.actions}>
-              <a href={project.productionLink} target="_blank" rel="noreferrer" className={styles.primaryBtn}>
-                Live Demo
-              </a>
+              <button className={styles.primaryBtn}>
+                <FiExternalLink size={18} />
+                Live Preview
+              </button>
 
-              <a href={project.githubLink} target="_blank" rel="noreferrer" className={styles.secondaryBtn}>
-                Source Code
-              </a>
-            </div>
-
-            {/* INFO GRID */}
-            <div className={styles.infoGrid}>
-              <div className={styles.infoRow}>
-                <span className={styles.infoIcon}><FiFolder /></span>
-                <span className={styles.infoLabel}>Category</span>
-                <span className={styles.infoValue}>Fullstack</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoIcon}><FiCalendar /></span>
-                <span className={styles.infoLabel}>Duration</span>
-                <span className={styles.infoValue}>{project.duration || 'Jan 2024 – Apr 2024'}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoIcon}><FiUser /></span>
-                <span className={styles.infoLabel}>Role</span>
-                <span className={styles.infoValue}>Full Stack Developer</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoIcon}><FiCheckCircle /></span>
-                <span className={styles.infoLabel}>Status</span>
-                <span className={styles.infoValue}>Completed</span>
-              </div>
+              <button className={styles.secondaryBtn}>
+                <FiGithub size={18} />
+                View Repo
+              </button>
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className={styles.imageWrapper}>
-            <img src={project.image} alt={project.title} />
+          {/* Right Preview */}
+          <div className={styles.previewCard}>
+            <div className={styles.browserHeader}>
+              <div className={styles.dots}>
+                <span />
+                <span />
+                <span />
+              </div>
+
+              <div className={styles.urlBar}>
+                https://shopease-prod.app/v2
+              </div>
+            </div>
+
+            <img
+              src={projectImage}
+              alt="Project Preview"
+              className={styles.previewImage}
+            />
           </div>
-
         </div>
 
-        {/* TECH STACK */}
-        <div className={styles.section}>
-          <h3>Tech Stack</h3>
-          <div className={styles.techStack}>
-            {project.techStack.map((tech, i) => (
-              <span key={i} className={styles.techBadge}>{tech}</span>
-            ))}
-          </div>
-        </div>
+        {/* Features */}
+        <div className={styles.featuresGrid}>
+          {features.map((item, index) => (
+            <div
+              key={index}
+              className={styles.featureCard}
+            >
+              <div className={styles.featureIcon}>
+                {item.icon}
+              </div>
 
-        {/* FEATURES */}
-        <div className={styles.section}>
-          <h3>Key Features</h3>
-          <ul className={styles.features}>
-            {project.features.map((f, i) => (
-              <li key={i}>✔ {f}</li>
-            ))}
-          </ul>
-        </div>
+              <h3>{item.title}</h3>
 
-        {/* ABOUT */}
-        <div className={styles.section}>
-          <h3>About This Project</h3>
-          <p>{project.fullDescription}</p>
+              <p>{item.description}</p>
+            </div>
+          ))}
         </div>
-
       </div>
+
+      {/* Background Blur */}
+      <div className={styles.blurOne}></div>
+      <div className={styles.blurTwo}></div>
     </section>
   );
 };
 
-export default ProjectDetails;
+export default PortfolioProject;

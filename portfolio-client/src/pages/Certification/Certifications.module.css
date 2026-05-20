@@ -1,0 +1,276 @@
+.certificationsSection {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 42px;
+  color: #dae2fd;
+  margin-bottom: 16px;
+}
+
+.title span {
+  color: #149ddd;
+}
+
+.subtitle {
+  max-width: 720px;
+  color: #bbc9cf;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  );
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.statCard {
+  background: rgba(23, 31, 51, 0.4);
+  border: 1px solid
+    rgba(133, 147, 153, 0.15);
+
+  border-radius: 22px;
+
+  padding: 24px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(
+    20,
+    157,
+    221,
+    0.35
+  );
+}
+
+.statIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+}
+
+.statCard h3 {
+  font-size: 32px;
+  color: #dae2fd;
+  margin-bottom: 8px;
+}
+
+.statCard p {
+  color: #bbc9cf;
+  font-size: 14px;
+}
+
+.cardsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  );
+
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: rgba(23, 31, 51, 0.4);
+
+  border: 1px solid
+    rgba(133, 147, 153, 0.15);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(
+    20,
+    157,
+    221,
+    0.35
+  );
+
+  box-shadow: 0 10px 40px
+    rgba(20, 157, 221, 0.12);
+}
+
+.glow {
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  top: -50px;
+  right: -50px;
+
+  border-radius: 50%;
+
+  filter: blur(40px);
+}
+
+.tag {
+  display: inline-block;
+
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  border: 1px solid;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 20px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.card h3 {
+  color: #dae2fd;
+
+  font-size: 24px;
+
+  line-height: 1.5;
+
+  margin-bottom: 12px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.provider {
+  margin-bottom: 18px;
+
+  font-size: 14px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.description {
+  color: #bbc9cf;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+
+  margin-bottom: 24px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.skills span {
+  background: #222a3d;
+
+  color: #dae2fd;
+
+  padding: 8px 14px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.05);
+}
+
+.bottomBanner {
+  margin-top: 60px;
+
+  background: rgba(23, 31, 51, 0.4);
+
+  border: 1px solid
+    rgba(133, 147, 153, 0.15);
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+.bottomBanner h3 {
+  color: #dae2fd;
+  margin-bottom: 10px;
+}
+
+.bottomBanner p {
+  color: #bbc9cf;
+  line-height: 1.8;
+}
+
+.bannerText {
+  color: #149ddd;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

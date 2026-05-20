@@ -1,0 +1,241 @@
+/* PortfolioCard.module.css */
+
+.portfolioSection {
+  width: 100%;
+  padding: 100px 64px;
+  background: #050816;
+  position: relative;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* HEADING */
+
+.headingWrapper {
+  margin-bottom: 40px;
+}
+
+.heading {
+  color: #dae2fd;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.line {
+  width: 100px;
+  height: 4px;
+  background: #00d1ff;
+  border-radius: 999px;
+  box-shadow: 0 0 12px #00d1ff;
+}
+
+/* CARD */
+
+.card {
+  position: relative;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  padding: 56px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(23, 31, 51, 0.45);
+  border: 1px solid
+    rgba(0, 209, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px
+    rgba(0, 209, 255, 0.05);
+}
+
+/* Glow */
+
+.glowOne {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 220px;
+  height: 220px;
+  background: rgba(104, 245, 184, 0.12);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.glowTwo {
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 220px;
+  height: 220px;
+  background: rgba(0, 209, 255, 0.12);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+/* IMAGE */
+
+.imageWrapper {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.projectImage {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+/* CONTENT */
+
+.content {
+  flex: 1.2;
+  position: relative;
+  z-index: 2;
+}
+
+.projectType {
+  display: inline-flex;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(5, 102, 217, 0.2);
+  border: 1px solid
+    rgba(164, 230, 255, 0.2);
+  color: #a4e6ff;
+  font-size: 13px;
+  font-family: "JetBrains Mono",
+    monospace;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+
+.projectTitle {
+  color: #dae2fd;
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-shadow: 0 0 12px
+    rgba(164, 230, 255, 0.2);
+}
+
+.description {
+  color: #bbc9cf;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+
+/* TECH STACK */
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.techStack span {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(164, 230, 255, 0.1);
+  border: 1px solid
+    rgba(164, 230, 255, 0.25);
+  color: #a4e6ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* BUTTONS */
+
+.buttonGroup {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  height: 54px;
+  padding: 0 28px;
+  border-radius: 14px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.primaryBtn {
+  background: #00d1ff;
+  color: #fff;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px
+    rgba(0, 209, 255, 0.3);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 1px solid #00d1ff;
+  color: #00d1ff;
+}
+
+.secondaryBtn:hover {
+  background: rgba(0, 209, 255, 0.08);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .card {
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .projectTitle {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolioSection {
+    padding: 80px 20px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .projectTitle {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

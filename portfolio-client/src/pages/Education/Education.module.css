@@ -1,9 +1,9 @@
-.educationSection {
+/* .educationSection {
   padding: 50px 20px;
 }
 
 .educationContainer {
-  /* max-width: 1140px; */
+
   margin: 0 2rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .resumeItem {
-  /* background: #1a1f2e; */
+  
   padding: 25px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -66,4 +66,365 @@
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
+} */
+
+
+.educationSection {
+  padding: 90px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.titleIcon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: rgba(20, 157, 221, 0.1);
+
+  border: 1px solid
+    rgba(20, 157, 221, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #149ddd;
+}
+
+.title {
+  font-size: 40px;
+  color: #dae2fd;
+  margin-bottom: 10px;
+}
+
+.title span {
+  color: #149ddd;
+}
+
+.subtitle {
+  color: #bbc9cf;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.educationCard {
+  position: relative;
+
+  overflow: hidden;
+
+  background: rgba(23, 31, 51, 0.45);
+
+  border: 1px solid
+    rgba(133, 147, 153, 0.15);
+
+  border-radius: 28px;
+
+  padding: 36px;
+
+  backdrop-filter: blur(12px);
+
+  margin-bottom: 40px;
+}
+
+.glow {
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background: rgba(20, 157, 221, 0.12);
+
+  top: -80px;
+  right: -80px;
+
+  filter: blur(60px);
+}
+
+.topSection {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 40px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.yearBadge {
+  display: inline-block;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(20, 157, 221, 0.1);
+
+  border: 1px solid
+    rgba(20, 157, 221, 0.2);
+
+  color: #149ddd;
+
+  font-size: 13px;
+
+  margin-bottom: 20px;
+}
+
+.degree {
+  font-size: 34px;
+
+  line-height: 1.4;
+
+  color: #dae2fd;
+
+  margin-bottom: 14px;
+}
+
+.college {
+  color: #bbc9cf;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+.cgpaCard {
+  min-width: 150px;
+
+  background: rgba(34, 42, 61, 0.5);
+
+  border: 1px solid
+    rgba(20, 157, 221, 0.3);
+
+  border-radius: 18px;
+
+  padding: 24px;
+
+  text-align: center;
+
+  box-shadow: 0 0 25px
+    rgba(20, 157, 221, 0.08);
+}
+
+.cgpaCard span {
+  display: block;
+
+  color: #bbc9cf;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
+}
+
+.cgpaCard h2 {
+  color: #149ddd;
+
+  font-size: 52px;
+
+  margin: 0;
+}
+
+.contentGrid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  );
+
+  gap: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.infoBlock {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+}
+
+.infoIcon {
+  min-width: 48px;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 14px;
+
+  background: rgba(104, 245, 184, 0.1);
+
+  border: 1px solid
+    rgba(104, 245, 184, 0.2);
+
+  color: #68f5b8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoBlock h4 {
+  color: #dae2fd;
+
+  margin-bottom: 10px;
+
+  font-size: 18px;
+}
+
+.infoBlock p {
+  color: #bbc9cf;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+}
+
+.coursework {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.coursework span {
+  background: #222a3d;
+
+  color: #dae2fd;
+
+  padding: 8px 14px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.05);
+}
+
+.highlightsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(260px, 1fr)
+  );
+
+  gap: 24px;
+}
+
+.highlightCard {
+  background: rgba(23, 31, 51, 0.45);
+
+  border: 1px solid
+    rgba(133, 147, 153, 0.15);
+
+  border-radius: 20px;
+
+  padding: 28px;
+
+  transition: 0.3s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+.highlightCard:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(
+    20,
+    157,
+    221,
+    0.3
+  );
+
+  box-shadow: 0 10px 30px
+    rgba(20, 157, 221, 0.1);
+}
+
+.highlightIcon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: rgba(20, 157, 221, 0.1);
+
+  border: 1px solid
+    rgba(20, 157, 221, 0.2);
+
+  color: #149ddd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+.highlightCard h3 {
+  color: #dae2fd;
+
+  margin-bottom: 12px;
+
+  font-size: 20px;
+}
+
+.highlightCard p {
+  color: #bbc9cf;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .degree {
+    font-size: 26px;
+  }
+
+  .educationCard {
+    padding: 24px;
+  }
+
+  .topSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cgpaCard {
+    width: 100%;
+  }
 }

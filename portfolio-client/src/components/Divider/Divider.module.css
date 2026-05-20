@@ -1,0 +1,177 @@
+/* 
+
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  padding-bottom: 32px;
+}
+
+
+
+.lineLeft {
+  flex: 1;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(60, 73, 78, 0) 0%,
+    rgba(60, 73, 78, 0.3) 50%,
+    rgba(60, 73, 78, 0.3) 100%
+  );
+}
+
+.centerContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.label {
+  opacity: 0.8;
+
+  color: #00d1ff;
+
+  font-size: 11px;
+  font-weight: 700;
+  font-family: "JetBrains Mono", monospace;
+
+  text-transform: uppercase;
+
+  line-height: 16px;
+  letter-spacing: 5.5px;
+
+  white-space: nowrap;
+}
+
+
+.dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: #00d1ff;
+
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.7);
+}
+
+
+
+.lineRight {
+  width: 96px;
+  height: 1px;
+
+  background: rgba(60, 73, 78, 0.3);
+}
+
+
+@media (max-width: 768px) {
+  .wrapper {
+    gap: 14px;
+  }
+
+  .label {
+    letter-spacing: 3px;
+    font-size: 10px;
+  }
+
+  .lineRight {
+    width: 50px;
+  }
+} */
+
+
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+
+  padding: 20px 0 36px;
+}
+
+/* Left Line */
+
+.lineLeft {
+  flex: 1;
+  /* max-width: 320px; */
+  max-width: 125px;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(60, 73, 78, 0) 0%,
+    rgba(60, 73, 78, 0.3) 50%,
+    rgba(60, 73, 78, 0.3) 100%
+  );
+}
+
+/* Center */
+
+.centerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Label */
+
+.label {
+  color: #00d1ff;
+
+  opacity: 0.8;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  font-family: "JetBrains Mono", monospace;
+
+  text-transform: uppercase;
+
+  letter-spacing: 5px;
+  line-height: 16px;
+
+  white-space: nowrap;
+}
+
+/* Right Line */
+
+.lineRight {
+  flex: 1;
+  max-width: 120px;
+
+  height: 1px;
+
+  background: rgba(60, 73, 78, 0.3);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .wrapper {
+    gap: 12px;
+    padding-bottom: 28px;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .lineRight {
+    max-width: 40px;
+  }
+}

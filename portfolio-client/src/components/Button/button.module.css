@@ -1,0 +1,48 @@
+/* ResumeButton.module.css */
+
+.wrapper {
+  align-self: stretch;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 31px;
+}
+
+.resumeButton {
+  width: 100%;
+  padding: 14px 20px;
+  /* background: #149ddd; */
+  background: linear-gradient(90deg,
+      #00d1ff 0%,
+      #0566d9 100%);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px rgba(20, 157, 221, 0.3);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resumeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 20px rgba(20, 157, 221, 0.5);
+}
+
+.footerText {
+  opacity: 0.6;
+  color: #bbc9cf;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.5px;
+}
