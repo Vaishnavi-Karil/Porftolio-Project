@@ -23,7 +23,11 @@ import { FiGithub, FiLinkedin, FiPhone } from 'react-icons/fi';
 import Button from './components/Button';
 
 // Page wrapper components with IDs for navigation
-const HeroPage = () => <section id="hero"><Hero /></section>;
+const HeroPage = ({ onNavigate }) => (
+  <section id="hero">
+    <Hero onNavigate={onNavigate} />
+  </section>
+);
 const AboutPage = () => <section id="about"><About /></section>;
 const ResumePage = () => <section id="resume"><Resume /></section>;
 const SkillsPage = () => <section id="skills"><Skills skills={skills} /></section>;
@@ -235,7 +239,7 @@ function App() {
           </Routes>
         ) : (
           <>
-            <HeroPage />
+            <HeroPage onNavigate={handleNavClick} />
             <AboutPage />
             <ResumePage />
             <SkillsPage />

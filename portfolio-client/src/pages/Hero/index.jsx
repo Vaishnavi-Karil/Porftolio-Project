@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./Hero.module.css";
 import profileImage from '/assets/img/profile_image.jpg';
 // import profileImage from '/assets/img/setting_profile_img.png';
-const Hero= () => {
+const Hero = ({ onNavigate }) => {
   return (
     <section id="hero" className={styles.homeSection}>
       <div className={styles.blur}></div>
@@ -43,11 +43,17 @@ const Hero= () => {
           {/* BUTTONS */}
 
           <div className={styles.buttons}>
-            <button className={styles.primaryBtn}>
+            <button 
+              className={styles.primaryBtn}
+              onClick={() => onNavigate('skills')}
+            >
               Explore Tech Stack
             </button>
 
-            <button className={styles.secondaryBtn}>
+            <button 
+              className={styles.secondaryBtn}
+              onClick={() => onNavigate('portfolio')}
+            >
               View Portfolio
             </button>
           </div>

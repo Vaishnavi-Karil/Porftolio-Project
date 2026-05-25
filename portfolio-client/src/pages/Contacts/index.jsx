@@ -7,10 +7,6 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaClock,
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaTwitter,
   FaPaperPlane,
 } from "react-icons/fa";
 
@@ -68,26 +64,6 @@ const Contact = () => {
               <p>Mon — Fri: 09:00 - 19:00</p>
               <span>Sat: 10:00 - 14:00</span>
             </div>
-          </div>
-
-          {/* Social Icons */}
-
-          <div className={styles.socialLinks}>
-            <a href="#">
-              <FaGithub />
-            </a>
-
-            <a href="#">
-              <FaLinkedin />
-            </a>
-
-            <a href="#">
-              <FaInstagram />
-            </a>
-
-            <a href="#">
-              <FaTwitter />
-            </a>
           </div>
         </div>
 
