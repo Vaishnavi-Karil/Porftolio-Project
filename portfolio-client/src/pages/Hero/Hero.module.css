@@ -447,11 +447,11 @@
   /* background: linear-gradient(90deg,
       #00d1ff 0%,
       #0566d9 100%); */
-    background: linear-gradient(90deg, #00d1ff 0%, #0566d9 100%);
+  background: linear-gradient(90deg, #00d1ff 0%, #0566d9 100%);
   /* color: #00566a; */
 
   border: none;
-   color: white;
+  color: white;
   font-weight: 540;
 
   box-shadow:

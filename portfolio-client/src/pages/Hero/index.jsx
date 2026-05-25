@@ -1,30 +1,3 @@
-// import React from "react";
-// import styles from "./Hero.module.css";
-// import Typewriter from "../../components/Typewriter";
-
-// const Hero = () => {
-//   return (
-//     <section id="hero" className={styles.heroSection}>
-//       <div className={styles.heroBgOverlay}></div>
-//       <div className={styles.heroContent}>
-//         <h1 className={styles.heroTitle}>Vaishnavi Karil</h1>
-//         <p className={styles.heroSubtitle}>
-//           Creative <Typewriter />
-//         </p>
-//       </div>
-//       <div className={styles.heroImageContainer}>
-//         <img
-//           src="/assets/img/Gemini_profile_photo.png"
-//           alt="Vaishnavi Karil - Profile"
-//           className={styles.heroImage}
-//         />
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Hero;
-
 
 import React from "react";
 import styles from "./Hero.module.css";
@@ -34,24 +7,8 @@ const Hero= () => {
   return (
     <section id="hero" className={styles.homeSection}>
       <div className={styles.blur}></div>
-
-      {/* TOP BAR */}
-
-      {/* <div className={styles.topBar}>
-        <div className={styles.logo}>
-          NEXUS_TERMINAL_V1.0
-        </div>
-
-        <div className={styles.menuIcon}>
-          ☰
-        </div>
-      </div> */}
-
-      {/* MAIN CONTENT */}
-
       <div className={styles.container}>
-       
-
+      
         {/* RIGHT CONTENT */}
 
         <div className={styles.content}>
@@ -135,24 +92,6 @@ const Hero= () => {
         </div>
 
       </div>
-
-      {/* FOOTER */}
-
-      {/* <div className={styles.footer}>
-        <div className={styles.footerLeft}>
-          <span>STATUS: TERMINAL STABLE</span>
-
-          <span>
-            © 2024 NEXUS TERMINAL | AI-AUGMENTED ENGINEERING
-          </span>
-        </div>
-
-        <div className={styles.footerRight}>
-          <a href="/">GitHub</a>
-          <a href="/">LinkedIn</a>
-          <a href="/">Twitter</a>
-        </div>
-      </div> */}
     </section>
   );
 };

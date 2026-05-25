@@ -49,15 +49,6 @@ const experiences = [
     icon: Share2,
     side: "right",
   },
-  {
-    company: "Asprarrow Tech",
-    role: "Trainee Developer",
-    period: "2019 - 2020",
-    description:
-      "Learned modern web development, REST APIs, modular architecture, and agile software development methodologies.",
-    icon: GraduationCap,
-    side: "left",
-  },
 ];
 
 export default function TimelinePage() {
