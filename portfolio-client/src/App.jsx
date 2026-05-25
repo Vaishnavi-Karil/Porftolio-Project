@@ -20,7 +20,6 @@ import Education from './pages/Education';
 import Certification from './pages/Certification';
 import ProjectDetails from './pages/ProjectDetails';
 import { FiGithub, FiLinkedin, FiPhone } from 'react-icons/fi';
-import Button from './components/Button';
 
 // Page wrapper components with IDs for navigation
 const HeroPage = ({ onNavigate }) => (
@@ -219,7 +218,6 @@ function App() {
               );
             })}
           </nav>
-          <Button text="Download CV" />
         </div>
       </aside>
 
@@ -256,4 +254,5 @@ function App() {
   );
 }
 export default App;
+
 
